@@ -1,8 +1,9 @@
+import { useParams } from 'next/navigation'
 import React from 'react'
 
 const page = () => {
   return (
-    <div>login</div>
+    <div>List Page</div>
   )
 }
 
