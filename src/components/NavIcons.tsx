@@ -2,7 +2,7 @@
 
 import Image from "next/image"
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Cookies from "js-cookie";
 import { useRouter } from "next/navigation";
 import CartModal from "./CartModal";
@@ -13,45 +13,86 @@ const NavIcons = () => {
   const router = useRouter();
 
   const isLoggedIn = true;
-  const counter = 92;
+  const counter = 9;
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      const target = event.target as HTMLElement;
+      if (
+        !target.closest(".mycart") &&
+        !target.closest(".myprofile")
+      ) {
+        setIsProfileOpen(false);
+        setIsCartOpen(false);
+      }
+    }
+
+    document.addEventListener("click", handleClickOutside);
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, []);
 
   const handleProfile = () => {
     if (!isLoggedIn) {
       router.push("/login");
     } else {
       setIsProfileOpen((prev) => !prev);
+      if(isCartOpen){
+        setIsCartOpen(false)
+      }
     }
   };
+  const handleCart = () => {
+      setIsCartOpen((prev) => !prev);
+      if(isProfileOpen){
+        setIsProfileOpen(false)
+      }
+    
+  };
 
-  const handleLogout = async () => {
+  const handleLogout = () => {
+    // setIsProfileOpen(false);
     setIsLoading(true);
     Cookies.remove("refreshToken");
     // const { logoutUrl } = await wixClient.auth.logout(window.location.href);
     setIsLoading(false);
-    setIsProfileOpen(false);
+    
     router.push("/login");
   };
   return (
     <div className="flex items-center gap-4 relative pr-5">
-        <Image src="/profile.png" alt="" width={22} height={22} className="cursor-pointer relative" onClick={handleProfile} />
-        {isProfileOpen && (
-        <div className="absolute p-4 rounded-md top-12 left-0 bg-white text-sm shadow-[0_3px_10px_rgb(0,0,0,0.2)] z-20">
-          <Link href="/profile">Profile</Link>
-          <div className="mt-2 cursor-pointer" onClick={handleLogout}>
-            {isLoading ? "Logging out" : "Logout"}
-          </div>
-        </div>
-        )}
+        
 
-        <Image src="/notification.png" alt="" width={22} height={22} className="cursor-pointer" />
-        <div
-        className="relative cursor-pointer"
-        onClick={() => setIsCartOpen((prev) => !prev)}
-      >
-        <Image src="/cart.png" alt="" width={22} height={22} />
-        <div className="absolute -top-4 -right-4 w-6 h-6 bg-lama rounded-full text-white text-sm flex items-center justify-center">
-            {counter}
+        {/* <Image src="/notification.png" alt="" width={22} height={22} className="cursor-pointer" /> */}
+        {/* Profile */}
+        <div 
+        className="myprofile flex gap-2 items-end cursor-pointer"
+        onClick={handleProfile}
+        >
+          <Image src="/profile.png" alt="" width={28} height={28} className="cursor-pointer relative"/>
+          {isProfileOpen && (
+          <div className="absolute p-4 rounded-md top-12 left-0 bg-white text-sm shadow-[0_3px_10px_rgb(0,0,0,0.2)] z-20">
+            <Link href="/login">Profile</Link>
+            <div className="myprofile mt-2 cursor-pointer" onClick={handleLogout}>
+              {isLoading ? "Logging out" : "Logout"}
+            </div>
+          </div>
+          )}
+          <h3 className="hidden lg:flex font-semibold">Login</h3>
         </div>
+
+        {/* Cart */}
+        <div className="mycart flex gap-2 items-end cursor-pointer"
+        onClick={handleCart}
+        >
+          <div className="relative">
+            <Image src="/cart.png" alt="" width={28} height={28} />
+            <div className="absolute -top-4 -right-4 w-6 h-6 bg-lama rounded-full text-white text-sm flex items-center justify-center">
+                {counter}
+            </div>
+          </div>
+
+          <h3 className="hidden lg:flex font-semibold">Cart</h3>
         </div>
         {isCartOpen && <CartModal />}
     </div>
