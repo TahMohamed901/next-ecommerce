@@ -8,7 +8,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "El Khaima | Home ",
-  description: "El Khaima home page",
+  description: "El Khaima home page ",
 };
 
 export default function RootLayout({
