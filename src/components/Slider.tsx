@@ -27,7 +27,7 @@ const Slider = () => {
         style={{ transform: `translateX(-${current * 100}vw)` }}
         >
         {slides.map((slide) => (
-            <div className={`${slide.bg} w-screen h-full flex flex-col gap-16 xl:flex-row`} key={slide.id}>
+            <div className={`${slide.bg} w-screen h-full flex flex-col gap-6 md:flex-row lg:flex-row xl:flex-row`} key={slide.id}>
                 <Slide slideInfo={slide} />
             </div>
         ))
