@@ -25,7 +25,7 @@ const Menu = () => {
                 {/* Mid */}
                 <div className="mt-5 flex flex-col gap-3 pl-3">
                 <Link href={"/"}>Home</Link>
-            <Link href={"/"}>Shop</Link>
+            <Link href={"/list"}>Shop</Link>
             <Link href={"/"}>Deals</Link>
             <Link href={"/"}>About</Link>
             <Link href={"/"}>Contact</Link>

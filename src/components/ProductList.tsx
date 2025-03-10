@@ -1,9 +1,15 @@
+import Image from 'next/image'
+import Link from 'next/link'
 import React from 'react'
+import Product from './Product'
 
 const ProductList = () => {
   return (
-    <div className='bg-slate-500 mt-12 flex gap-x-8 gap-y-16 justify-between flex-wrap'>
-      products
+    <div className='mt-12 flex gap-x-8 gap-y-16 justify-between flex-wrap'>
+      <Product img="/p1.jpg" />
+      <Product img="/p5.jpg" />
+      <Product img="/p3.jpg" />
+      <Product img="/p4.jpg" />
     </div>
   )
 }

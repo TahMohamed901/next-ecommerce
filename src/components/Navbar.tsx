@@ -54,7 +54,7 @@ const Navbar = () => {
         {/* Bottom */}
         <div className='hidden md:flex border-t border-black pt-2 pb-2 w-full  justify-center items-center gap-10 font-semibold'>
             <Link href={"/"}>Home</Link>
-            <Link href={"/"}>Shop</Link>
+            <Link href={"/list"}>Shop</Link>
             <Link href={"/"}>Deals</Link>
             <Link href={"/"}>About</Link>
             <Link href={"/"}>Contact</Link>
