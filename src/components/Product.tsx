@@ -5,8 +5,8 @@ import React from 'react'
 const Product = ({img}:any) => {
   return (
     <>
-    <Link href="/" className='w-full flex flex-col gap-4 sm:w-[45%] lg:w-[22%]'>
-        <div className='relative w-full h-80'>
+    <Link href="/" className='w-full flex flex-col gap-3 sm:w-[45%] md:w-[45%] lg:w-[28%] xl:w-[22%] border-2 p-2'>
+        <div className='relative w-full h-80 '>
           <Image 
           src={img} 
           alt='' 
@@ -29,7 +29,7 @@ const Product = ({img}:any) => {
         <div className='text-sm text-gray-500'>
           My Description
         </div>
-        <button className="rounded-2xl ring-1 ring-lama text-lama w-max py-2 px-4 text-xs hover:bg-lama hover:text-white">
+        <button className="rounded-2xl ring-1 ring-main text-main w-max py-2 px-4 text-xs hover:bg-main hover:text-white">
             Add to Cart
         </button>
     </Link>

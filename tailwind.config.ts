@@ -15,6 +15,7 @@ const config: Config = {
       },
       colors: {
         lama: "#F35C7A",
+        main: "#242172",
       },
     },
     
