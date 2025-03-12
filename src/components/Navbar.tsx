@@ -11,23 +11,24 @@ const Navbar = () => {
         {/* Mobile */}
         <div className='md:hidden h-full flex-col justify-between items-center py-2'>
             {/* Top */}
-            <div className='flex justify-center items-center p-2'>
-                <Link href={"/"} >
-                {/* <div className='text-2xl tracking-wide'>El Khaima</div> */}
-                <Image src="/w-logo.png" alt='' width={120} height={50} className='p-2'/>
-                </Link>
-            </div>
             {/* Mid */}
+
+            {/* Bottom */}
+            <div className='flex justify-between items-center mt-1 '>
+                <div className='flex justify-center items-center w-1/3'>
+                    <Link href={"/"} >
+                    <Image src="/w-logo.png" alt='' width={120} height={50} className='p-2'/>
+                    </Link>
+                </div>
+                <div className='flex'>
+                <NavIcons/>
+                <Menu/>
+                </div>
+            </div>
+
             <div>
             <Searchbar/>
             </div>
-
-            {/* Bottom */}
-            <div className='flex justify-between items-center mt-8 mb-2'>
-                <Menu/>
-                <div><NavIcons/></div>
-            </div>
-
         </div>
 
         {/* Desktop screens */}
