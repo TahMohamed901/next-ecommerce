@@ -1,7 +1,7 @@
 import Banner from "@/components/Banner"
 import CategoryList from "@/components/CategoryList"
+import CustomProducts from "@/components/CustomProducts"
 import ProductList from "@/components/ProductList"
-import Slider from "@/components/Slider"
 import Link from "next/link"
 
 const HomePage = () => {
@@ -14,13 +14,14 @@ const HomePage = () => {
     {/* Product Catalogue  1 */} 
     <div className="pt-10 px-4 md:px-8 lg:px-16 xl:px-32 2xl:px-64 bg-neutral-600/10">
     <div className="flex justify-between items-end">
-      <h1 className="text-2xl">Featured Products</h1>
+      <h1 className="text-2xl font-medium">Bestsellers</h1>
       <Link href={"/list"}>
         <h6 className="underline">See All</h6>
       </Link>
       
     </div>
-    <ProductList/>
+    {/* <ProductList/> */}
+    <CustomProducts />
     </div>
 
 
