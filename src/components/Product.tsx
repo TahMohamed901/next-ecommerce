@@ -15,7 +15,7 @@ const Product = ({img}:any) => {
           className='absolute object-cover  z-10 hover:opacity-0 transition-opacity easy duration-500'
           />
           <Image
-            src="/p2.jpg"
+            src="/products/accessories/p2.jpg"
             alt=""
             fill
             sizes="23vw"
