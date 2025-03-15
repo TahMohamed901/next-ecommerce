@@ -6,7 +6,7 @@ const Product = ({img}:any) => {
   return (
     <>
     <Link href="/list" className='w-full flex flex-col gap-3 sm:w-[45%] md:w-[45%] lg:w-[28%] xl:w-[22%] '>
-        <div className='relative w-full max-sm:h-72 h-56 h-2/3'>
+        <div className='relative w-full max-sm:h-72 h-56'>
           <Image 
           src={img} 
           alt='' 

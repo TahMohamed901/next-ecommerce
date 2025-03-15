@@ -18,7 +18,7 @@ const Menu = () => {
   return (
     <div className="">
         <Image 
-            src="/menu.png" 
+            src="/icons/menu.png" 
             alt="" 
             width={28} 
             height={28} 

@@ -5,7 +5,7 @@ const CartItem = () => {
   return (
     <div className='flex gap-4'>
         <Image 
-        src="/product.jpg" 
+        src="/products/accessories/p3.jpg" 
         alt="" 
         width={72} 
         height={96} 

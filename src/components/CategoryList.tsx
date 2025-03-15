@@ -12,7 +12,7 @@ const CategoryList = () => {
         >
         <div className="relative bg-slate-100 w-full h-96">
             <Image
-            src="/p1.jpg"
+            src="/products/accessories/p2.jpg"
             alt=""
             fill
             sizes="20vw"
@@ -30,7 +30,7 @@ const CategoryList = () => {
         >
         <div className="relative bg-slate-100 w-full h-96">
             <Image
-            src="/p2.jpg"
+            src="/products/accessories/p3.jpg"
             alt=""
             fill
             sizes="20vw"
@@ -48,7 +48,7 @@ const CategoryList = () => {
         >
         <div className="relative bg-slate-100 w-full h-96">
             <Image
-            src="/p3.jpg"
+            src="/products/accessories/p4.jpg"
             alt=""
             fill
             sizes="20vw"
@@ -66,7 +66,7 @@ const CategoryList = () => {
         >
         <div className="relative bg-slate-100 w-full h-96">
             <Image
-            src="/p4.jpg"
+            src="/products/accessories/p5.jpg"
             alt=""
             fill
             sizes="20vw"
@@ -84,7 +84,7 @@ const CategoryList = () => {
         >
         <div className="relative bg-slate-100 w-full h-96">
             <Image
-            src="/p4.jpg"
+            src="/products/accessories/p4.jpg"
             alt=""
             fill
             sizes="20vw"
@@ -102,7 +102,7 @@ const CategoryList = () => {
         >
         <div className="relative bg-slate-100 w-full h-96">
             <Image
-            src="/p4.jpg"
+            src="/products/accessories/p4.jpg"
             alt=""
             fill
             sizes="20vw"
@@ -120,7 +120,7 @@ const CategoryList = () => {
         >
         <div className="relative bg-slate-100 w-full h-96">
             <Image
-            src="/p4.jpg"
+            src="/products/accessories/p4.jpg"
             alt=""
             fill
             sizes="20vw"

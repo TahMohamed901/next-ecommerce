@@ -32,7 +32,7 @@ const Add = () => {
             <button
               className="cursor-pointer text-xl disabled:cursor-not-allowed disabled:opacity-20"
               onClick={() => handleQuantity("i")}
-            //   disabled={quantity===stockNumber}
+              disabled={quantity===stockNumber}
             >
               +
             </button>
@@ -52,7 +52,7 @@ const Add = () => {
         //   disabled={isLoading}
           className="w-36 text-sm rounded-3xl ring-1 ring-lama text-lama py-2 px-4 hover:bg-lama hover:text-white disabled:cursor-not-allowed disabled:bg-pink-200 disabled:ring-0 disabled:text-white disabled:ring-none"
         >
-          Add to Cart
+          Add to Carts
         </button>
       </div>
     </div>

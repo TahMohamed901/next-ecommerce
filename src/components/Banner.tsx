@@ -8,7 +8,7 @@ const Banner = () => {
     <div className='
       w-full 
       relative overflow-hidden  sm:h-[50vh] lg:h-[40vh] xl:h-[70vh]'>
-          <Carousel slides={[['/sq5.png','/p6.jpg'],['/sq.png','/slide2.jpg']]} />
+          <Carousel slides={[['/images/sq5.png','/images/img6.jpg'],['/images/sq.png','/images/img7.jpg']]} />
       </div>
         
     </div>

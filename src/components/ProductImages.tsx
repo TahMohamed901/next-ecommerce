@@ -6,19 +6,19 @@ import { useState } from "react";
 const images = [
   {
     id: 1,
-    url: "/p1.jpg",
+    url: "/products/accessories/p2.jpg",
   },
   {
     id: 2,
-    url: "/p2.jpg",
+    url: "/products/accessories/p3.jpg",
   },
   {
     id: 3,
-    url: "/p3.jpg",
+    url: "/products/accessories/p4.jpg",
   },
   {
     id: 4,
-    url: "/p4.jpg",
+    url: "/products/accessories/p5.jpg",
   },
 ];
 
@@ -28,7 +28,7 @@ const ProductImages = () => {
 
   return (
     <div className="">
-      <div className="h-[500px] relative">
+      <div className="max-sm:h-[80vw] h-[30vw] relative">
         <Image
           src={images[index].url}
           alt=""
@@ -37,11 +37,11 @@ const ProductImages = () => {
           className="object-cover rounded-md"
         />
       </div>
-      <div className="flex justify-between gap-4 mt-8">
+      <div className="flex justify-between gap-4 mt-4">
         {images.map((img:any, i:number) => (
           <div
-            className="w-1/4 h-32 relative gap-4 mt-8 cursor-pointer"
-            key={img._id}
+            className="w-1/4 h-28 relative gap-4 mt-8 cursor-pointer"
+            key={i}
             onClick={() => setIndex(i)}
           >
             <Image

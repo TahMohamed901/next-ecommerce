@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import Cookies from "js-cookie";
 import { useRouter } from "next/navigation";
 import CartModal from "./CartModal";
+
 const NavIcons = () => {
   const [isProfileOpen, setIsProfileOpen] = useState(false);
   const [isCartOpen, setIsCartOpen] = useState(false);
@@ -49,6 +50,13 @@ const NavIcons = () => {
       }
     
   };
+  const handleFavorite = () => {
+    setIsCartOpen((prev) => !prev);
+    if(isProfileOpen){
+      setIsProfileOpen(false)
+    }
+  
+};
 
   const handleLogout = () => {
     // setIsProfileOpen(false);
@@ -69,7 +77,7 @@ const NavIcons = () => {
         className="myprofile flex gap-2 items-end cursor-pointer"
         onClick={handleProfile}
         >
-          <Image src="/profile.png" alt="" width={28} height={28} className="cursor-pointer relative"/>
+          <Image src="/icons/accountIcon.svg" alt="" width={27} height={28} className="cursor-pointer relative"/>
           {isProfileOpen && (
           <div className="absolute p-4 rounded-md top-12 left-0 bg-white text-sm shadow-[0_3px_10px_rgb(0,0,0,0.2)] z-20">
             <Link href="/login">Profile</Link>
@@ -78,21 +86,34 @@ const NavIcons = () => {
             </div>
           </div>
           )}
-          <h3 className="hidden lg:flex font-semibold">Login</h3>
+          {/* <h3 className="hidden lg:flex font-semibold">Login</h3> */}
         </div>
-
+        {/* Favorite*/}
+        <div 
+        className="myfavorite flex gap-2 items-end cursor-pointer"
+        onClick={handleProfile}
+        >
+          <Image src="/icons/favoriteIcon.svg" alt="" width={27} height={28} className="cursor-pointer relative"/>
+          {isProfileOpen && (
+          <div className="absolute p-4 rounded-md top-12 left-0 bg-white text-sm shadow-[0_3px_10px_rgb(0,0,0,0.2)] z-20">
+            <Link href="/login">Profile</Link>
+            <div className="myprofile mt-2 cursor-pointer" onClick={handleLogout}>
+              {isLoading ? "Logging out" : "Logout"}
+            </div>
+          </div>
+          )}
+          {/* <h3 className="hidden lg:flex font-semibold">Login</h3> */}
+        </div>
         {/* Cart */}
         <div className="mycart flex gap-2 items-end cursor-pointer"
         onClick={handleCart}
         >
           <div className="relative">
-            <Image src="/cart.png" alt="" width={28} height={28} />
-            <div className="absolute -top-4 -right-4 w-6 h-6 bg-lama rounded-full text-white text-sm flex items-center justify-center">
+            <Image src="/icons/cartIcon.svg" alt="" width={27} height={25} className=""/>
+            <div className="absolute -top-0 -right-2  w-5 h-5 bg-main_text rounded-full text-white text-sm flex items-center justify-center">
                 {counter}
             </div>
           </div>
-
-          <h3 className="hidden lg:flex font-semibold">Cart</h3>
         </div>
         {isCartOpen && <CartModal />}
     </div>

@@ -17,7 +17,7 @@ const page = () => {
           </button>
         </div>
         <div className="relative w-1/3">
-          <Image src="/p6.jpg" alt="" fill className="object-contain p-10 rounded-lg" />
+          <Image src="/images/img6.jpg" alt="" fill className="object-contain p-10 rounded-lg" />
         </div>
       </div>
 
