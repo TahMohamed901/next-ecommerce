@@ -1,16 +1,42 @@
+import path from "path";
 
+export const bestsellers = {
+    path:"",
+    data:[
+        {
+            name: "Nouakchott",
+            description:"mauritanian sunset",
+            images:["/products/photography/nktt-3.jpg"],
+        },
+        {
+            name: "Tasbih",
+            description:"traditional tasbih",
+            images:["/products/accessories/tasbih-4.webp"],
+        },
+        {
+            name: "Rocaille",
+            description:"traditional rocaille",
+            images:["/products/accessories/rocaille-1.jpg"],
+        },
+        {
+            name: "Mauritania Railway",
+            description:"Travel in the Sahara Desert",
+            images:["/products/photography/train-2.webp"],
+        },
+    ]
+}
 export const photographies = {
-    path:"/photography",
+    path:"/products/photography/",
     data:[
     
         {
             name: "Mauritania Railway",
-            description:"Travel poster in the Sahara Desert, wall art print in Mauritania, illustration poster, artwork, home and office decoration, gift idea, mineralized train travel print.",
-            images:["/train-1.webp","/photography/train-2.webp","/train-3.webp","/train-4.webp"],
+            description:"Travel in the Sahara Desert...",
+            images:["train-1.webp","train-1.webp","train-3.webp","train-4.webp"],
         },
         {
             name: "Nouakchott",
-            description:"nouakchott map",
+            description:"nouakchott map mapmap",
             images:["nkc-map-1.webp","nkc-map-2.webp","nkc-map-3.webp"],
         },
         {
@@ -53,7 +79,7 @@ export const photographies = {
 //     ]
 // };
 export const accessories = {
-    path:"/accessories",
+    path:"/products/accessories",
     data:[
     
         {
@@ -69,7 +95,7 @@ export const accessories = {
         {
             name: "Rocaille",
             description:"traditional rocaille",
-            images:["/rocaille-1.webp","/rocaille-1.webp","/rocaille-1.webp"],
+            images:["/rocaille-1.jpg","/rocaille-1.jpg","/rocaille-1.jpg"],
         },
         
     ]

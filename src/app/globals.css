@@ -2,7 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-.no-scroll {
+html, body{
+    overflow-x: hidden;
+}
+
+html.no-scroll, body.no-scroll {
     overflow: hidden;
 }
 
@@ -12,8 +16,4 @@
 
 .scrollbar-hide{
 scrollbar-width: none;
-}
-
-html, body{
-    overflow-x: hidden;
 }

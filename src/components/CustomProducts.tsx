@@ -2,6 +2,7 @@
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import Product1 from './Product1';
+import CarouselItem from './CarouselItem';
 
 const responsive = {
     superLargeDesktop: {

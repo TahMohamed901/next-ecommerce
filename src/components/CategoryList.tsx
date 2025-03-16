@@ -17,6 +17,7 @@ const CategoryList = () => {
             fill
             sizes="20vw"
             className="object-cover"
+            draggable={false}
             />
         </div>
         <h1 className="mt-8 font-light text-xl tracking-wide">
@@ -35,6 +36,7 @@ const CategoryList = () => {
             fill
             sizes="20vw"
             className="object-cover"
+            draggable={false}
             />
         </div>
         <h1 className="mt-8 font-light text-xl tracking-wide">
@@ -53,6 +55,7 @@ const CategoryList = () => {
             fill
             sizes="20vw"
             className="object-cover"
+            draggable={false}
             />
         </div>
         <h1 className="mt-8 font-light text-xl tracking-wide">
@@ -71,6 +74,7 @@ const CategoryList = () => {
             fill
             sizes="20vw"
             className="object-cover"
+            draggable={false}
             />
         </div>
         <h1 className="mt-8 font-light text-xl tracking-wide">
@@ -89,6 +93,7 @@ const CategoryList = () => {
             fill
             sizes="20vw"
             className="object-cover"
+            draggable={false}
             />
         </div>
         <h1 className="mt-8 font-light text-xl tracking-wide">
@@ -107,6 +112,7 @@ const CategoryList = () => {
             fill
             sizes="20vw"
             className="object-cover"
+            draggable={false}
             />
         </div>
         <h1 className="mt-8 font-light text-xl tracking-wide">
@@ -125,6 +131,7 @@ const CategoryList = () => {
             fill
             sizes="20vw"
             className="object-cover"
+            draggable={false}
             />
         </div>
         <h1 className="mt-8 font-light text-xl tracking-wide">
