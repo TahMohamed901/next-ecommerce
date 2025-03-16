@@ -29,11 +29,11 @@ const Menu = () => {
         />
                 {/* Overlay pour bloquer les interactions sur la page */}
                 {open && (
-                        <div className="fixed inset-0 bg-black bg-opacity-50 h-[100vh] z-90" onClick={() => setOpen(false)} />
+                        <div className="fixed inset-0 bg-black bg-opacity-50 h-[100vh] z-2000" onClick={() => setOpen(false)} />
                 )}
         
         {open && (
-            <div className="fixed  bg-white text-black left-0 top-0 w-[100vw] h-[100vh]  flex flex-col z-100">
+            <div className="fixed  bg-white text-black left-0 top-0 w-[100vw] h-[100vh]  flex flex-col z-2001">
                 {/* Top */}
                 <div className="flex justify-end items-center border-b">
                     <span className="mr-4 mt-2 text-xl cursor-pointer" 

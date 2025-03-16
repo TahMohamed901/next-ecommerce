@@ -1,9 +1,9 @@
 "use client"
 
 import Link from 'next/link'
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import Image from "next/image"
-import Menu from '@/components/Menu'
+import Menu from '@/components/Navbar/Menu'
 import Searchbar from './Searchbar'
 import NavIcons from './NavIcons'
 

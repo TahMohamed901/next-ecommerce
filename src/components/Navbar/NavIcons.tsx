@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import Cookies from "js-cookie";
 import { useRouter } from "next/navigation";
-import CartModal from "./CartModal";
+import CartModal from "@/components/Cart/CartModal";
 
 const NavIcons = () => {
   const [isProfileOpen, setIsProfileOpen] = useState(false);

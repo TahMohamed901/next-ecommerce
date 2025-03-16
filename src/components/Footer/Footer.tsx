@@ -12,11 +12,10 @@ const Footer = () => {
             <div className="text-2xl tracking-wide">EL KHAÏMA</div>
           </Link>
           <p>
-            3252 Winding Way, Central Plaza, Willowbrook, CA 90210, United
-            States
+            3252 Tevragh Zeina, BanaBlanc, Nouakchott, Mauritania
           </p>
-          <span className="font-semibold">hello@lama.dev</span>
-          <span className="font-semibold">+1 234 567 890</span>
+          <span className="font-semibold">hello@elkhaima.mr</span>
+          <span className="font-semibold">+222 48 41 07 57</span>
           <div className="flex gap-6">
             <Image src="/icons/facebook.png" alt="" width={16} height={16} />
             <Image src="/icons/instagram.png" alt="" width={16} height={16} />
@@ -27,11 +26,9 @@ const Footer = () => {
         <div className="hidden lg:flex justify-between w-1/2">
           <div className="flex flex-col justify-between">
             <h1 className="font-medium text-lg">COMPANY</h1>
-            <div className="flex flex-col gap-6">
+            <div className="flex flex-col gap-6 ">
               <Link href="">About Us</Link>
-              <Link href="">Careers</Link>
-              <Link href="">Affiliates</Link>
-              <Link href="">Blog</Link>
+              <Link href="">Our Artists</Link>
               <Link href="">Contact Us</Link>
             </div>
           </div>
@@ -40,8 +37,8 @@ const Footer = () => {
             <div className="flex flex-col gap-6">
               <Link href="">New Arrivals</Link>
               <Link href="">Accessories</Link>
-              <Link href="">Men</Link>
-              <Link href="">Women</Link>
+              <Link href="">Photographies</Link>
+              <Link href="">sculpture</Link>
               <Link href="">All Products</Link>
             </div>
           </div>

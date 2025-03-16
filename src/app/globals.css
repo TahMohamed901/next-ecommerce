@@ -6,6 +6,13 @@ html, body{
     overflow-x: hidden;
 }
 
+.z-2000{
+    z-index: 2000;
+}
+.z-2001{
+    z-index: 2001;
+}
+
 html.no-scroll, body.no-scroll {
     overflow: hidden;
 }

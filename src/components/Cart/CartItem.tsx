@@ -1,6 +1,4 @@
 import Image from 'next/image'
-import React from 'react'
-
 const CartItem = () => {
   return (
     <div className='flex gap-4'>

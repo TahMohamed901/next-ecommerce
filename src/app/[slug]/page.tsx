@@ -1,6 +1,6 @@
-import Add from '@/components/Add'
-import ProductImages from '@/components/ProductImages'
-import React from 'react'
+import Add from '@/components/Product/Add'
+import ProductImages from '@/components/Product/ProductImages'
+
 
 // Single Product
 const ProductDetails = () => {

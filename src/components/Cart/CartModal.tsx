@@ -1,5 +1,5 @@
-import React from 'react'
-import CartItem from './CartItem';
+
+import CartItem from '@/components/Cart/CartItem';
 
 const CartModal = () => {
     const cartItems = true;

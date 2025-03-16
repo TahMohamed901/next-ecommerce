@@ -1,4 +1,4 @@
-import Filter from '@/components/Filter'
+import Filter from '@/components/Filter/Filter'
 import ProductList from '@/components/ProductList'
 import Image from 'next/image'
 import { useParams } from 'next/navigation'
