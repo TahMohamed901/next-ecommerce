@@ -31,11 +31,6 @@ export default function Carousel({
       <div className="flex transition-transform ease-out duration-500 w-full h-full" style={{ transform: `translateX(-${curr * 100}%)` }}>
         {slides.map((pair, i) => (
           <div key={i} className="flex-shrink-0 w-full h-full flex max-sm:flex-col ">
-            {/* <div className="relative max-sm:w-full w-1/2 h-full 
-            bg-gradient-to-r from-slate-200 to-orange-200"
-            >
-                <h1>test</h1>
-            </div> */}
             <div className="relative max-sm:w-full max-sm:h-1/3 md:w-1/2 xl:w-3/5 h-full ">
                 <Image src={pair[1]} alt="" fill className="object-cover" />
             </div>

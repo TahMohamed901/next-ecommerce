@@ -8,7 +8,7 @@ import Searchbar from './Searchbar'
 import NavIcons from './NavIcons'
 
 const Navbar = () => {
-    const [isVisible, setIsVisible] = useState(true);
+  const [isVisible, setIsVisible] = useState(true);
   let lastScrollY = 0;
 
   useEffect(() => {
