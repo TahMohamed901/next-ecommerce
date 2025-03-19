@@ -1,4 +1,5 @@
 import React from "react";
+
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Poppins } from "next/font/google";
@@ -12,6 +13,7 @@ export const poppins = Poppins({
   weight: ['200', '300', '400', '500','600' , '800'],
 })
 export const metadata: Metadata = {
+  
   title: "El Khaima | Home ",
   description: "El Khaima home page ",
 };
@@ -23,6 +25,10 @@ const RootLayout = ({
 }>) => {
   return (
     <html lang="en">
+      <head>
+        {/* Désactive le zoom automatique sur iPhone */}
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+      </head>
       <body className={poppins.className}>
         <Navbar />
         <div className="mt-[101px]">

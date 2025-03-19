@@ -9,15 +9,15 @@ export const mobileMenu = [
     },
     {
         title:"sculpture",
-        link:"/sculpture"
+        link:"/artworks?cat=sculpture"
     },
     {
         title:"Painting",
-        link:"/paints"
+        link:"/artworks?cat=paints"
     },
     {
         title:"Photographies",
-        link:"/protographies"
+        link:"/artworks?cat=protographies"
     }
 ]
 
@@ -32,14 +32,14 @@ export const DesktopMenu = [
     },
     {
         title:"sculpture",
-        link:"/sculpture"
+        link:"/artworks?cat=sculpture"
     },
     {
         title:"Painting",
-        link:"/paints"
+        link:"/artworks?cat=paints"
     },
     {
         title:"Photographies",
-        link:"/protographies"
+        link:"/artworks?cat=protographies"
     }
 ]

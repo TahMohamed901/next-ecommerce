@@ -71,7 +71,7 @@ const MobileFilter = () => {
         >
             <div>
                 <Image 
-                    src="/icons/close.png" 
+                    src="/icons/close.svg" 
                     alt="" 
                     width={22} 
                     height={22} 
@@ -91,7 +91,7 @@ const MobileFilter = () => {
                         onChange={handleFilterChange}
                         value={filters.type}
                     >
-                        <option value="all">All</option>
+                        <option value="all">all</option>
                         <option value="physical">Physical</option>
                         <option value="digital">Digital</option>
                     </select>
@@ -105,7 +105,8 @@ const MobileFilter = () => {
                         onChange={handleFilterChange}
                         value={filters.cat}
                     >
-                        <option value="all">All</option>
+                        {(filters.cat !== "") ? (<option value={filters.cat}>{filters.cat}</option>) : 
+                        (<option value="All">All</option>)}
                         <option value="New_Arrival">New Arrival</option>
                         <option value="Popular">Popular</option>
                     </select>

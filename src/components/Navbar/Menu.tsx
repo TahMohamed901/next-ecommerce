@@ -38,13 +38,26 @@ const Menu = () => {
             {/* <div className="fixed inset-0 bg-black bg-opacity-50 h-[100vh] zi-100" onClick={() => setOpen(false)} /> */}
             <div 
             
-            className="absolute bg-white text-black left-0 top-0 w-full h-screen flex flex-col trz"
+            className="absolute bg-white text-black left-0 top-0 w-full h-[100vh] flex flex-col trz"
             >
                 {/* Top */}
-                <div className="flex justify-end items-center border-b">
-                    <span className="mr-4 mt-2 text-xl cursor-pointer" 
-                    onClick={()=>{setOpen((prev)=> !prev)}} 
-                    >x</span>
+                <div className="flex justify-between items-end pb-2 h-16 px-4 border-b-2">
+                    <div className="flex justify-start items-end w-2/5 h-10 pb-1">
+                        <Link href={"/"} >
+                        <Image src="/logo/logo-1_2.png" alt='' width={152.8} height={100} priority />
+                        </Link>
+                    </div>
+                    <div className="flex w-3/5 justify-end items-center">
+                    <Image 
+                        src="/icons/close.svg" 
+                        alt="" 
+                        width={27} 
+                        height={22} 
+                        priority
+                        className="cursor-pointer" 
+                        onClick={() => setOpen((prev) => !prev)} 
+                    />
+                    </div>
                 </div>
                 {/* Mid */}
                 <div className="mt-5 flex flex-col gap-3 pl-3 bg-white  h-[100vh]">

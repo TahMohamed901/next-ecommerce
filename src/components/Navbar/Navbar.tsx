@@ -40,7 +40,7 @@ const Navbar = () => {
                 {/* Left */}
                 <div className='flex justify-start items-end w-2/5 h-10 pb-1'>
                     <Link href={"/"} >
-                    <Image src="/logo/logo-1_2.png" alt='' width={200} height={100} priority />
+                    <Image src="/logo/logo-1_2.png" alt='' width={152.8} height={100} priority />
                     </Link>
                 </div>
                 {/* Right */}
@@ -87,7 +87,7 @@ const Navbar = () => {
         '
         >
         {DesktopMenu.map((item, index )=> (
-                    <Link key={index} href={item.link}  >{item.title}</Link>
+          <Link key={index} href={item.link}  >{item.title}</Link>
         ))}
         </div>
     </div>
