@@ -16,11 +16,11 @@ export const metadata: Metadata = {
   description: "El Khaima home page ",
 };
 
-export default function RootLayout({
+const RootLayout = ({
   children,
 }: Readonly<{
   children: React.ReactNode;
-}>) {
+}>) => {
   return (
     <html lang="en">
       <body className={poppins.className}>
@@ -35,3 +35,4 @@ export default function RootLayout({
     </html>
   );
 }
+export default RootLayout

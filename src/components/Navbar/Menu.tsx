@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
+import { mobileMenu } from "@/lib/menu"
 const Menu = () => {
     const [open, setOpen] = useState(false)
     useEffect(() => {
@@ -42,11 +43,11 @@ const Menu = () => {
                 </div>
                 {/* Mid */}
                 <div className="mt-5 flex flex-col gap-3 pl-3">
-                <Link href={"/"} onClick={()=>{setOpen(false)}} >Home</Link>
-                <Link href={"/list"} onClick={()=>{setOpen(false)}} >Shop</Link>
-                <Link href={"/"} onClick={()=>{setOpen(false)}} >Deals</Link>
-                <Link href={"/"} onClick={()=>{setOpen(false)}} >About</Link>
-                <Link href={"/"} onClick={()=>{setOpen(false)}} >Contact</Link>
+                {mobileMenu.map((item, index )=> (
+                    <Link key={index} href={item.link} onClick={()=>{setOpen(false)}} >{item.title}</Link>
+                ))
+
+                }
                 </div>
             </div>
         )

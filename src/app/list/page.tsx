@@ -1,5 +1,5 @@
 import Filter from '@/components/Filter/Filter'
-import ProductList from '@/components/ProductList'
+// import ProductList from '@/components/ProductList'
 import Image from 'next/image'
 import { useParams } from 'next/navigation'
 const page = () => {
@@ -24,7 +24,8 @@ const page = () => {
       {/* FILTER */}
       <Filter />
       
-      <ProductList />
+      {/* <ProductList /> */}
+      <div>products</div>
     </div>
   )
 }

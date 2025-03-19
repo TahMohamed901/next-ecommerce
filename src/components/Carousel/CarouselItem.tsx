@@ -12,9 +12,10 @@ interface ItemInfo {
 
 const CarouselItem: React.FC<ItemInfo> = ({ img, title, description, price }) => {
     const [isFavorite, setIsFavorite] = useState(false);
-
+    
     return (
-    <div className='text-left flex flex-col select-none  h-[400px] w-[240px] p-5 max-sm:p-2 max-sm:w-full md:mb-10'>
+    <div className='text-left flex flex-col select-none  h-[400px] w-[240px] p-5 max-sm:p-2 max-sm:w-full md:mb-10'
+    >
     {/* Image */}
         <div className='flex justify-center max-sm:h-1/2 max-sm:w-full h-[100vw] relative'>
             <Image 

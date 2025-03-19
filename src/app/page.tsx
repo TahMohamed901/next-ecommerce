@@ -41,14 +41,14 @@ const HomePage = () => {
       <h1 className="text-2xl font-medium">Bestsellers</h1>
       <p className="text-sm">Discover artworks our collectors love</p>
       </div>
-      <Link href={"/list"}>
+      <Link href={"/artworks"}>
         <h6 className="underline max-sm:mt-8">All Artworks</h6>
-        <p></p>
       </Link>
       
     </div>
-
-    <MultiCarousel category={bestsellers} />
+    <div className="">
+      <MultiCarousel category={bestsellers} />
+    </div>
     </div>
 
 

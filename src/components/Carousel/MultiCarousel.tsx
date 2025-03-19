@@ -3,6 +3,7 @@ import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 
 import CarouselItem from './CarouselItem';
+import { useEffect } from 'react';
 interface Product {
     name: string;
     description: string;
@@ -14,6 +15,7 @@ interface Category {
     data: Product[];
 
 }
+
 const responsive = {
     superLargeDesktop: { breakpoint: { max: 4000, min: 3000 }, items: 5 },
     desktop: { breakpoint: { max: 3000, min: 1024 }, items: 5 },
@@ -21,15 +23,16 @@ const responsive = {
     mobile: { breakpoint: { max: 464, min: 0 }, items: 2 }
 };
 const MultiCarousel: React.FC<{ category: Category }> = ({ category }) => {
+
+    
     return (
-    <div className='pb-4'> 
+    <div  className='pb-4'> 
         <Carousel 
         responsive={responsive} 
         infinite={true}
         showDots
         removeArrowOnDeviceType={['tablet', 'desktop','mobile']}
         dotListClass="md:hidden"
-        
         >
         {category.data.map((product, index) => (
             <CarouselItem
