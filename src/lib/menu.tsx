@@ -4,6 +4,10 @@ export const mobileMenu = [
         link:"/artworks"
     },
     {
+        title:"Artists",
+        link:"/artists"
+    },
+    {
         title:"sculpture",
         link:"/sculpture"
     },
@@ -21,6 +25,10 @@ export const DesktopMenu = [
     {
         title:"Artworks",
         link:"/artworks"
+    },
+    {
+        title:"Artists",
+        link:"/artists"
     },
     {
         title:"sculpture",

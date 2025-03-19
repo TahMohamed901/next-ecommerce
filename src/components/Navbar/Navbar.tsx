@@ -6,6 +6,7 @@ import Image from "next/image"
 import Menu from '@/components/Navbar/Menu'
 import Searchbar from './Searchbar'
 import NavIcons from './NavIcons'
+import { DesktopMenu } from '@/lib/menu'
 
 const Navbar = () => {
   const [isVisible, setIsVisible] = useState(true);
@@ -28,7 +29,7 @@ const Navbar = () => {
 
   return (
     
-    <div className={`mx-auto max-sm:pt-0 px-4 md:px-10 pt-4 fixed top-0 left-0 w-full bg-white shadow-md transition-transform duration-300 z-50 ${
+    <div className={`mx-auto max-sm:pt-0 px-4 md:px-10 pt-4 fixed top-0 left-0 w-full bg-white shadow-md transition-transform duration-300 z-[2000] ${
       isVisible ? 'translate-y-0' : '-translate-y-full'
     }`}>
         {/* Mobile */}
@@ -85,11 +86,9 @@ const Navbar = () => {
         
         '
         >
-            <Link className=' hover:border-t-2 hover:border-b-2 hover:border-black' href={"/"}>Artworks</Link>
-            <Link className=' hover:border-t-2 hover:border-b-2 hover:border-black' href={"/"}>sculpture</Link>
-            <Link className=' hover:border-t-2 hover:border-b-2 hover:border-black' href={"/list"}>Painting</Link>
-            <Link className=' hover:border-t-2 hover:border-b-2 hover:border-black' href={"/"}>Photographie</Link>
-            <Link className=' hover:border-t-2 hover:border-b-2 hover:border-black' href={"/"}>Artists</Link>
+        {DesktopMenu.map((item, index )=> (
+                    <Link key={index} href={item.link}  >{item.title}</Link>
+        ))}
         </div>
     </div>
   )

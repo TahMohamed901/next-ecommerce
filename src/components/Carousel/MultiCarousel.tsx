@@ -31,7 +31,7 @@ const MultiCarousel: React.FC<{ category: Category }> = ({ category }) => {
         responsive={responsive} 
         infinite={true}
         showDots
-        removeArrowOnDeviceType={['tablet', 'desktop','mobile']}
+        removeArrowOnDeviceType={['tablet', 'desktop']}
         dotListClass="md:hidden"
         >
         {category.data.map((product, index) => (

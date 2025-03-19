@@ -24,12 +24,10 @@ const RootLayout = ({
   return (
     <html lang="en">
       <body className={poppins.className}>
-        
         <Navbar />
         <div className="mt-[101px]">
         {children}
         </div>
-        
         <Footer />
       </body>
     </html>

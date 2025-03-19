@@ -5,20 +5,20 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 const Filter = () => {
   const pathname = usePathname();
   const searchParams = useSearchParams();
-  const { replace } = useRouter();
+  const router = useRouter();
   const handleFilterChange = (
     e: React.ChangeEvent<HTMLSelectElement | HTMLInputElement>
   ) => {
     const { name, value } = e.target;
-    const params = new URLSearchParams(searchParams);
+    const params = new URLSearchParams(searchParams.toString());
     params.set(name, value);
     if(!value || value === '' ||value === 'all'){
         params.delete(name,value)
     }
-    replace(`${pathname}?${params.toString()}`);
+    router.push(`${pathname}?${params.toString()}`);
   };
   return (
-    <div className="mt-12 flex justify-between">
+    <div className=" flex justify-between">
       <div className="flex gap-6 flex-wrap">
         <select
           name="type"

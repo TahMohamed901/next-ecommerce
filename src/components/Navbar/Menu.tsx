@@ -9,13 +9,16 @@ const Menu = () => {
         if (open) {
             // document.body.classList.add("no-scroll");
             document.documentElement.classList.add("no-scroll");
+            document.documentElement.style.overflow = "hidden";
         } else {
             // document.body.classList.remove("no-scroll");
             document.documentElement.classList.remove("no-scroll");
+            document.documentElement.style.overflow = "auto";
         }
         
         return () => {
             document.body.classList.remove("no-scroll");
+            document.documentElement.style.overflow = "auto";
         };
     }, [open]);
   return (
@@ -28,13 +31,15 @@ const Menu = () => {
             className="cursor-pointer" 
             onClick={()=>{setOpen((prev)=> !prev)}} 
         />
-                {/* Overlay pour bloquer les interactions sur la page */}
-                {open && (
-                        <div className="fixed inset-0 bg-black bg-opacity-50 h-[100vh] z-2000" onClick={() => setOpen(false)} />
-                )}
-        
+    <div className="">
+
         {open && (
-            <div className="fixed  bg-white text-black left-0 top-0 w-[100vw] h-[100vh]  flex flex-col z-2001">
+            <>
+            {/* <div className="fixed inset-0 bg-black bg-opacity-50 h-[100vh] zi-100" onClick={() => setOpen(false)} /> */}
+            <div 
+            
+            className="absolute bg-white text-black left-0 top-0 w-full h-screen flex flex-col trz"
+            >
                 {/* Top */}
                 <div className="flex justify-end items-center border-b">
                     <span className="mr-4 mt-2 text-xl cursor-pointer" 
@@ -42,17 +47,17 @@ const Menu = () => {
                     >x</span>
                 </div>
                 {/* Mid */}
-                <div className="mt-5 flex flex-col gap-3 pl-3">
+                <div className="mt-5 flex flex-col gap-3 pl-3 bg-white  h-[100vh]">
                 {mobileMenu.map((item, index )=> (
                     <Link key={index} href={item.link} onClick={()=>{setOpen(false)}} >{item.title}</Link>
-                ))
-
-                }
+                ))}
                 </div>
             </div>
+            </>
         )
 
         }
+    </div>
     </div>
   )
 }
