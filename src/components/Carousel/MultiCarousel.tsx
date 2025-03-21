@@ -9,11 +9,9 @@ interface Product {
     description: string;
     images: string[];
 }
-
 interface Category {
     path: string;
     data: Product[];
-
 }
 
 const responsive = {

@@ -6,6 +6,7 @@ import { Poppins } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar/Navbar";
 import Footer from "@/components/Footer/Footer";
+import type { Viewport } from 'next'
 
 const inter = Inter({ subsets: ["latin"] });
 export const poppins = Poppins({
@@ -13,10 +14,15 @@ export const poppins = Poppins({
   weight: ['200', '300', '400', '500','600' , '800'],
 })
 export const metadata: Metadata = {
-  
   title: "El Khaima | Home ",
   description: "El Khaima home page ",
 };
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1.0,
+  maximumScale: 1.0,
+  userScalable:false
+}
 
 const RootLayout = ({
   children,
@@ -25,11 +31,7 @@ const RootLayout = ({
 }>) => {
   return (
     <html lang="en">
-      <head>
-        {/* Désactive le zoom automatique sur iPhone */}
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-      </head>
-      <body className={poppins.className}>
+      <body className={poppins.className} >
         <Navbar />
         <div className="mt-[101px]">
         {children}

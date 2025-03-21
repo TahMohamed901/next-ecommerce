@@ -18,7 +18,7 @@ const Filter = () => {
     router.push(`${pathname}?${params.toString()}`);
   };
   return (
-    <div className=" flex justify-between">
+    <div className="flex justify-between">
       <div className="flex gap-6 flex-wrap">
         <select
           name="type"
@@ -53,13 +53,6 @@ const Filter = () => {
           <option value="all" >Category</option>
           <option value="New_Arrival">New Arrival</option>
           <option value="Popular">Popular</option>
-        </select>
-        <select
-          name=""
-          id=""
-          className="py-2 px-4 rounded-2xl text-xs font-medium bg-[#EBEDED]"
-        >
-          <option>All Filters</option>
         </select>
       </div>
       <div className="">

@@ -2,6 +2,10 @@ import Filter from "@/components/Filter/Filter";
 import MobileFilter from "@/components/Filter/MobileFilter";
 import type { Metadata } from "next";
 
+export const metadata: Metadata = {
+  title: "El Khaima | Home ",
+  description: "El Khaima home page ",
+};
 
 const ArtworksLayout = ({
   children,
@@ -9,27 +13,20 @@ const ArtworksLayout = ({
   children: React.ReactNode;
 }>) => {
     return (
-        <div className="pt-2 flex">
-            
-            <div className="max-md:hidden w-1/5 bg-slate-400">
-            left bar
-            </div>
-            <div className="w-full px-2">
-              <div className="max-sm:hidden">
-                <Filter/>
-              </div>
-              <div className="md:hidden">
-                <div>test</div>
-                <div>
-                <MobileFilter />
-                </div>
-              </div>
-              {/* <div className="filter flex justify-center text-white">
-                <button className="mb-4 bg-black p-1.5 rounded-md w-[110px]">Filter</button>
-              </div> */}
-              {children}
-            </div>
+    <div className="mx-auto md:w-4/5"> 
+      {/* Sidebar */}
+        <div className="px-4 pt-8 py-4 max-sm:hidden">
+          {/* <DesktopTabletFilter/> */}
+          <Filter/>
         </div>
+      {/* Contenu principal */}
+      <div className="flex-1 px-2 w-full">
+          {children}
+          <div className="md:hidden">             
+            <MobileFilter />
+          </div>
+      </div>
+    </div>
     )
 }
 

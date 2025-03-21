@@ -67,7 +67,7 @@ const MobileFilter = () => {
         </div>
     ) : (
         <div 
-            className="fixed p-4 rounded-sm shadow-[0_3px_10px_rgb(0,0,0,0.4)] bg-slate-50 h-auto top-25 right-2 left-2 flex flex-col justify-between pb-20 z-50"
+            className="fixed p-4 rounded-sm shadow-[0_3px_10px_rgb(0,0,0,0.4)] bg-slate-50 h-auto top-28 right-5 left-5 flex flex-col justify-between pb-20 z-50"
         >
             <div>
                 <Image 
@@ -120,6 +120,7 @@ const MobileFilter = () => {
                     name="min"
                     placeholder="min price"
                     className="text-xs rounded-2xl pl-2 w-32 py-1 ring-1 ring-gray-500 text-[16px]" 
+                    value={filters.min}
                     onChange={handleFilterChange}
                     />
 
@@ -128,6 +129,7 @@ const MobileFilter = () => {
                     name="max"
                     placeholder="max price"
                     className="text-xs rounded-2xl pl-2 w-32 py-1 ring-1 ring-gray-500 text-[16px]" 
+                    value={filters.max}
                     onChange={handleFilterChange}
                     />
                     </div>

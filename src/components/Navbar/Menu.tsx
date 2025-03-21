@@ -60,10 +60,14 @@ const Menu = () => {
                     </div>
                 </div>
                 {/* Mid */}
-                <div className="mt-5 flex flex-col gap-3 pl-3 bg-white  h-[100vh]">
-                {mobileMenu.map((item, index )=> (
-                    <Link key={index} href={item.link} onClick={()=>{setOpen(false)}} >{item.title}</Link>
-                ))}
+                <div className="mt-5 flex flex-col  bg-white  h-[100vh]">
+                    <div className="flex flex-col gap-6 px-3 border-b border-black pb-10">
+                        {mobileMenu.map((item, index )=> (
+                            <div className=" border-black underline">
+                                <Link  key={index} href={item.link} onClick={()=>{setOpen(false)}} >{item.title}</Link>
+                            </div>
+                        ))}
+                    </div>
                 </div>
             </div>
             </>
