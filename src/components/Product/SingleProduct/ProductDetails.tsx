@@ -12,6 +12,7 @@ const ProductDetails = () => {
                 $150
             </h2>
         </div>
+        {/* Separator */} <div className='h-[2px] bg-gray-300' />
         </>
     )
 }
