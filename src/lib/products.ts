@@ -23,6 +23,46 @@ export const bestsellers = {
             description:"Travel in the Sahara Desert",
             images:["/products/photography/train-2.webp"],
         },
+        {
+            name: "Nouakchott",
+            description:"mauritanian sunset",
+            images:["/products/photography/nktt-3.jpg"],
+        },
+        {
+            name: "Tasbih",
+            description:"traditional tasbih",
+            images:["/products/accessories/tasbih-4.webp"],
+        },
+        {
+            name: "Rocaille",
+            description:"traditional rocaille",
+            images:["/products/accessories/rocaille-1.jpg"],
+        },
+        {
+            name: "Mauritania Railway",
+            description:"Travel in the Sahara Desert",
+            images:["/products/photography/train-2.webp"],
+        },
+        {
+            name: "Nouakchott",
+            description:"mauritanian sunset",
+            images:["/products/photography/nktt-3.jpg"],
+        },
+        {
+            name: "Tasbih",
+            description:"traditional tasbih",
+            images:["/products/accessories/tasbih-4.webp"],
+        },
+        {
+            name: "Rocaille",
+            description:"traditional rocaille",
+            images:["/products/accessories/rocaille-1.jpg"],
+        },
+        {
+            name: "Mauritania Railway",
+            description:"Travel in the Sahara Desert",
+            images:["/products/photography/train-2.webp"],
+        },
     ]
 }
 export const photographies = {

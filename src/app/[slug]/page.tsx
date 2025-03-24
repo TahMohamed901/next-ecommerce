@@ -1,5 +1,5 @@
 import Add from '@/components/Product/Add'
-import ProductImages from '@/components/Product/ProductImages'
+import ProductImages from '@/components/Product/SingleProduct/ProductImages'
 
 
 // Single Product

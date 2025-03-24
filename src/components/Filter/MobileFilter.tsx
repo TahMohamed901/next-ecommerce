@@ -17,9 +17,9 @@ const MobileFilter = () => {
     const searchParams = useSearchParams();
     const router = useRouter();
 
-    // ✅ Met à jour les valeurs des champs en fonction de l'URL
+    
     useEffect(() => {
-        if (!open) return; // Ne met à jour que si le menu est ouvert
+        if (!open) return; 
 
         setFilters({
             type: searchParams.get("type") || "all",
@@ -30,7 +30,7 @@ const MobileFilter = () => {
         });
     }, [open, searchParams]);
 
-    // ✅ Réinitialiser les filtres
+    
     const handleReset = () => {
         const params = new URLSearchParams(searchParams.toString());
         ["type", "min", "max", "cat", "sort"].forEach((param) => params.delete(param));
@@ -39,7 +39,7 @@ const MobileFilter = () => {
         setIsOpen(false);
     };
 
-    // ✅ Met à jour l'URL lors d'un changement de filtre
+    
     const handleFilterChange = (e: React.ChangeEvent<HTMLSelectElement | HTMLInputElement>) => {
         const { name, value } = e.target;
         const params = new URLSearchParams(searchParams.toString());
@@ -97,7 +97,7 @@ const MobileFilter = () => {
                     </select>
                 </div>
                 {/* Category */}
-                <div className="flex justify-between py-3 text-[16px]" >
+                <div className="flex justify-between py-3 text-[16px]">
                     <h1 className="font-semibold">Category</h1>
                     <select
                         name="cat"
@@ -116,19 +116,20 @@ const MobileFilter = () => {
                     <h1 className="font-semibold">Price</h1>
                     <div className="flex justify-between gap-3">
                     <input
-                    type="text"
+                    type="number"
                     name="min"
                     placeholder="min price"
-                    className="text-xs rounded-2xl pl-2 w-32 py-1 ring-1 ring-gray-500 text-[16px]" 
+                    className="text-xs rounded-2xl pl-2 w-24 py-1 ring-1 ring-gray-500 text-[16px]" 
                     value={filters.min}
                     onChange={handleFilterChange}
+                    min="0"
                     />
 
                     <input
                     type="text"
                     name="max"
                     placeholder="max price"
-                    className="text-xs rounded-2xl pl-2 w-32 py-1 ring-1 ring-gray-500 text-[16px]" 
+                    className="text-xs rounded-2xl pl-2 w-24 py-1 ring-1 ring-gray-500 text-[16px]" 
                     value={filters.max}
                     onChange={handleFilterChange}
                     />
