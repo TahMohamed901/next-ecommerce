@@ -21,8 +21,6 @@ const SingleProduct = () => {
         <div className='sm:w-full md:w-1/2 lg:w-1/2 xl:w-1/2 flex flex-col gap-6'>
     {/* Separator */} <div className='sm:hidden h-[2px] bg-gray-100'/>
         <ProductDetails />
-        <ProductDetails />
-        <ProductDetails />
         <Add />
         </div>
     </div>
