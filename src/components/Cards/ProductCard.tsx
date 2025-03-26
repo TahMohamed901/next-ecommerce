@@ -5,7 +5,10 @@ import { IconButton } from "@mui/material";
 import { useState } from 'react';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import FavoriteIcon from '@mui/icons-material/Favorite';
+import ShoppingIcon from '@mui/icons-material/ShoppingBagSharp';
 import Avatar from '@mui/material/Avatar';
+import useCartStore from '@/hooks/useCartStore';
+import { allProducts } from '@/lib/products';
 const Label = styled(Paper)(({ theme }) => ({
     backgroundColor: '#fff',
     // ...theme.typography.body2,
@@ -20,39 +23,53 @@ const Label = styled(Paper)(({ theme }) => ({
     // }),
 }))
 
-const ProductCard = () => {
+const ProductCard: React.FC<{ pId: string }> = ({ pId }) => {
+
     const [isFavorite, setIsFavorite] = useState(false);
+    const { addToCart} = useCartStore();
+    const product = allProducts.data.find(p => p.id === pId) ?? null;
     return (
-    <Label>
-        {/* Favorite Icon */}
-        <div className='flex max-sm:w-full justify-between items-center border-b'>
-            {/* <Image 
-            className='cursor-pointer'
-            src={isFavorite ? "/icons/r-fv.svg" : "/icons/favoriteicon.svg"} 
-            alt="favorite icon" 
-            width={20} 
-            height={20}
-            onClick={() => setIsFavorite(prev => !prev)}
-            /> */}
-            <div className='flex gap-1'>
-            <Avatar sx={{ width: 28, height: 28 }} alt="Travis Howard" src="/avatars/avt1.jpeg" />
-            <h1 className='text-md font-light pt-1 max-sm:hidden'>username</h1>
+
+
+        <>
+        <img
+        srcSet={`${product?.images[0]}?w=162&auto=format&dpr=2 2x`}
+        src={`${product?.images[0]}?w=162&auto=format`}
+        alt={product?.name}
+        loading="lazy"
+        style={{
+            // borderBottomLeftRadius: 4,
+            // borderBottomRightRadius: 4,
+            display: 'block',
+            width: '100%',
+        }}
+        />
+        <Label>
+            <div className='flex max-sm:w-full justify-between items-center border-b'>
+                <div className='flex gap-1'>
+                    <Avatar sx={{ width: 28, height: 28 }} alt="User Avatar" src="/avatars/avt1.jpeg" />
+                    <h1 className='text-md font-light pt-1 max-sm:hidden'>User</h1>
+                </div>
+                <div>
+                    <IconButton onClick={() => setIsFavorite(!isFavorite)} color="error">
+                        {isFavorite ? <FavoriteIcon /> : <FavoriteBorderIcon />}
+                    </IconButton>
+                    <IconButton color='inherit' onClick={() => product?.id && addToCart(product.id,1)}>
+                        <ShoppingIcon />
+                    </IconButton>
+                </div>
             </div>
-            <IconButton onClick={() => setIsFavorite(!isFavorite)} color="error">
-                {isFavorite ? <FavoriteIcon /> : <FavoriteBorderIcon />}
-            </IconButton>
-        </div>
-
-        {/* Product Details */}
-        <div className='flex-col justify-start pt-2'>
-
-            <h1 className='font-semibold text-md'>product name</h1>
-            <p className='font-light text-sm'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut, officia eum.</p>
-            <h1 className='font-medium text-end pt-2'>$132</h1>
-            
-        </div>
-    </Label>
+    
+            <div className='flex-col justify-start pt-2'>
+                <h1 className='font-semibold text-md'>{product?.name}</h1>
+                <p className='font-light text-sm'>{product?.description}</p>
+                <h1 className='font-medium text-end pt-2'>${product?.price}</h1>
+            </div>
+        </Label>
+        </>
     )
-}
+        
+    
+};
 
-export default ProductCard
+export default ProductCard;

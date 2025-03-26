@@ -162,3 +162,43 @@ export const others = {
     ]
 };
 
+
+export const allProducts = {
+    ids:["12","13","14","15"],
+    path:"/products/photography/",
+    data:[
+
+        {
+            id:"12",
+            name: "Nouakchott",
+            price:1232,
+            quantity:2,
+            description:"nouakchott map mapmap",
+            images:["/products/photography/nkc-map-1.webp","/products/photography/nkc-map-2.webp","/products/photography/nkc-map-3.webp"],
+        },
+        {
+            id:"13",
+            name: "Mauritania",
+            price:532,
+            quantity:3,
+            description:"mauritanian map",
+            images:["/products/photography/mrt-cart-1.jpg","/products/photography/mrt-cart-2.jpg","/products/photography/mrt-cart-1.jpg"],
+        },
+        {
+            id:"14",
+            name: "Nouakchott",
+            price:740,
+            quantity:8,
+            description:"mauritanian sunset",
+            images:["/products/photography/nktt-3.jpg","/products/photography/nktt-4.jpg"],
+        },
+        {
+            id:"15",
+            name: "Nouakchott",
+            price:2240,
+            quantity:2,
+            description:"mauritanian street",
+            images:["/products/photography/nktt-1.jpg","/products/photography/nktt-2.jpg"],
+        },
+    ]
+};

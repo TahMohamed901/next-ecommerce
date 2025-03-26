@@ -11,12 +11,10 @@ import { DesktopMenu } from '@/lib/menu'
 const Navbar = () => {
   const [isVisible, setIsVisible] = useState(true);
   let lastScrollY = 0;
-
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > lastScrollY && lastScrollY > 100 ) {
         setIsVisible(false); // Cache la navbar en scrollant vers le bas
-        console.log(window.screenY)
       } else {
         setIsVisible(true); // Affiche la navbar en scrollant vers le haut
       }

@@ -1,7 +1,19 @@
 "use client"
 import{ useState } from 'react'
+import useCartStore from '@/hooks/useCartStore';
 
 const Add = () => {
+    const {addToCart} = useCartStore();
+    // for testing 
+    const product = {
+      id:"12",
+      name: "Nouakchott",
+      price:1232,
+      quantity:2,
+      description:"nouakchott map mapmap",
+      images:["/products/photography/nkc-map-1.webp","/products/photography/nkc-map-2.webp","/products/photography/nkc-map-3.webp"],
+    }
+    //
     const [quantity, setQuantity] = useState(1);
     const stockNumber = 3;
     const handleQuantity = (type: "i" | "d") => {
@@ -48,7 +60,7 @@ const Add = () => {
           {/* )} */}
         </div>
         <button
-        //   onClick={() => addItem(wixClient, productId, variantId, quantity)}
+          onClick={()=>addToCart(product.id,quantity)}
         //   disabled={isLoading}
           className="w-36 text-sm rounded-3xl ring-1 bg-black text-white py-2 px-4 hover:bg-black hover:text-orange-500 disabled:cursor-not-allowed disabled:bg-pink-200 disabled:ring-0 disabled:text-white disabled:ring-none"
         >

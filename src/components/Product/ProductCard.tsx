@@ -27,7 +27,7 @@ const ProductCard = ({img, title, username, description, price}:ProductCardProps
                     />
                 </div>
             
-            {/* Favorite Icon */}
+            {/* Icons */}
                 <div className='flex max-sm:w-full justify-end items-center pt-2'>
                     <Image 
                     className='cursor-pointer'
@@ -37,6 +37,15 @@ const ProductCard = ({img, title, username, description, price}:ProductCardProps
                     height={20}
                     onClick={() => setIsFavorite(prev => !prev)}
                     />
+                    <Image 
+                    className='cursor-pointer'
+                    src={isFavorite ? "/icons/r-fv.svg" : "/icons/favoriteicon.svg"} 
+                    alt="favorite icon" 
+                    width={20} 
+                    height={20}
+                    onClick={() => setIsFavorite(prev => !prev)}
+                    />
+                    
                 </div>
         
             {/* Product Details */}

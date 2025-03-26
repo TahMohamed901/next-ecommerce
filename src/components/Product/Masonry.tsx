@@ -22,21 +22,17 @@ const Label = styled(Paper)(({ theme }) => ({
     }),
 }));
 
-interface IMProps{
-    // w:number;
-    // minH:number;
-    // col:number;
-    // sp:number;
-    data:[{}]
-}
-interface Product {
-    name: string;
-    description: string;
-    images: string[];
-}
+// interface Product {
+//     id:string;
+//     name: string;
+//     price:number;
+//     quantity:number;
+//     description: string;
+//     images: string[];
+// }
 interface Category {
     path: string;
-    data: Product[];
+    ids: string[],
 }
 const ImageMasonry: React.FC<{ category: Category }> = ({ category }) => {
     const [isFavorite, setIsFavorite] = useState(false);
@@ -47,31 +43,13 @@ const ImageMasonry: React.FC<{ category: Category }> = ({ category }) => {
     const columns = isLg ? 5 : isMd ? 4 : 2;
 return (
     <Box  
-    sx={{
-        width: "100%",
-        // minHeight: 829,
-        // backgroundColor: "red",
-        px: 0, // Ajoute un padding horizontal pour éviter le collage à gauch
-        
-    }}
+    sx={{width: "100%"}}
     >
         <Masonry columns={columns} spacing={0}  className='w-full '>
-            {category.data.map((product, index)=>(
-            <div key={index} className='px-1 py-2' >
-                <img
-                srcSet={`${category.path+product.images[0]}?w=162&auto=format&dpr=2 2x`}
-                src={`${category.path+product.images[0]}?w=162&auto=format`}
-                alt={product.name}
-                loading="lazy"
-                style={{
-                    // borderBottomLeftRadius: 4,
-                    // borderBottomRightRadius: 4,
-                    display: 'block',
-                    width: '100%',
-                }}
-                />
-                <ProductCard />
-            </div>
+            {category.ids.map((pId,index)=>(
+              <div key={index} className='px-1 py-2' >
+                  <ProductCard pId={pId}/>
+              </div>
             ))}
         </Masonry>
     </Box>

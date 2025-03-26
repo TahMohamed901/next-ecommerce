@@ -6,15 +6,16 @@ import { useEffect, useState } from "react";
 import Cookies from "js-cookie";
 import { useRouter } from "next/navigation";
 import CartModal from "@/components/Cart/CartModal";
-
+import useCartStore from '@/hooks/useCartStore';
 const NavIcons = () => {
   const [isProfileOpen, setIsProfileOpen] = useState(false);
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
-
+  const { carts } = useCartStore();
   const isLoggedIn = true;
-  const counter = 9;
+  const [itemCounter, setItemCounter] = useState(carts.length)
+  console.log(itemCounter)
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       const target = event.target as HTMLElement;
@@ -110,9 +111,11 @@ const NavIcons = () => {
         >
           <div className="relative">
             <Image src="/icons/cartIcon.svg" alt="" width={27} height={25} className=""/>
+            {carts.length > 0 && 
             <div className="absolute -top-0 -right-2  w-5 h-5 bg-main_text rounded-full text-white text-sm flex items-center justify-center">
-                {counter}
+                {carts.length}
             </div>
+            }
           </div>
         </div>
         {isCartOpen && <CartModal />}
