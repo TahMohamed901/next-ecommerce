@@ -15,15 +15,17 @@ import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 import Image from "next/image";
 import { useState } from "react";
 
-const images = [
-  { id: 1, url: "/products/photography/train-1.webp" },
-  { id: 2, url: "/products/photography/train-2.webp" },
-  { id: 3, url: "/products/photography/train-3.webp" },
-  { id: 4, url: "/products/photography/train-4.webp" },
-  { id: 5, url: "/products/photography/img-5.png" },
-];
-
-const ProductImages = () => {
+// const images = [
+//   { id: 1, url: "/products/photography/train-1.webp" },
+//   { id: 2, url: "/products/photography/train-2.webp" },
+//   { id: 3, url: "/products/photography/train-3.webp" },
+//   { id: 4, url: "/products/photography/train-4.webp" },
+//   { id: 5, url: "/products/photography/img-5.png" },
+// ];
+interface ProductImagesProps{
+  images:string[]
+}
+const ProductImages = ({images}:ProductImagesProps) => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   return (
@@ -37,9 +39,9 @@ const ProductImages = () => {
                   <CardContent className="relative flex aspect-square items-center justify-center">
                     {/* Ouvre le Drawer au clic */}
                     <Drawer>
-                      <DrawerTrigger onClick={() => setSelectedImage(img.url)}>
+                      <DrawerTrigger onClick={() => setSelectedImage(img)}>
                         <Image
-                          src={img.url}
+                          src={img}
                           alt={`Image ${index + 1}`}
                           fill
                           sizes="30vw"

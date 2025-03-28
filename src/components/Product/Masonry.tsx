@@ -9,6 +9,7 @@ import { IconButton } from "@mui/material";
 import { useMediaQuery, useTheme } from "@mui/material";
 import { useState } from 'react';
 import ProductCard from '../Cards/ProductCard';
+import Link from 'next/link';
 const Label = styled(Paper)(({ theme }) => ({
     backgroundColor: '#fff',
     ...theme.typography.body2,
@@ -48,7 +49,9 @@ return (
         <Masonry columns={columns} spacing={0}  className='w-full '>
             {category.ids.map((pId,index)=>(
               <div key={index} className='px-1 py-2' >
+                {/* <Link href={`/${pId}`}> */}
                   <ProductCard pId={pId}/>
+                {/* </Link> */}
               </div>
             ))}
         </Masonry>

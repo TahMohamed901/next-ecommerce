@@ -1,32 +1,21 @@
 "use client"
-import{ useState } from 'react'
+import{ useEffect, useState } from 'react'
 import useCartStore from '@/hooks/useCartStore';
 
-const Add = () => {
-    const {addToCart} = useCartStore();
-    // for testing 
-    const product = {
-      id:"12",
-      name: "Nouakchott",
-      price:1232,
-      quantity:2,
-      description:"nouakchott map mapmap",
-      images:["/products/photography/nkc-map-1.webp","/products/photography/nkc-map-2.webp","/products/photography/nkc-map-3.webp"],
-    }
-    //
-    const [quantity, setQuantity] = useState(1);
-    const stockNumber = 3;
-    const handleQuantity = (type: "i" | "d") => {
-        if (type === "d" && quantity > 1) {
-          setQuantity((prev) => prev - 1);
-        }
-        // if (type === "i" && quantity < stockNumber) {
-        //   setQuantity((prev) => prev + 1);
-        // }
-        if (type === "i" && quantity < stockNumber) {
-            setQuantity((prev) => prev + 1);
-          }
-      };
+const Add = ({product}) => {
+  const { addToCart, carts } = useCartStore();
+  const inCart = carts.find(c => c.id === product.id);
+  const maxQuantity = inCart? product.quantity - inCart.quantity : product.quantity;
+  const [quantity, setQuantity] = useState(1);
+  
+
+  const handleQuantity = (type: "i" | "d") => {
+      setQuantity((prev) => {
+          if (type === "d" && prev > 1) return prev - 1;
+          if (type === "i" && prev < maxQuantity) return prev + 1;
+          return prev;
+      });
+  };
   return (
     <div className="flex flex-col gap-4">
       <h4 className="font-medium">Choose a Quantity</h4>
@@ -44,7 +33,7 @@ const Add = () => {
             <button
               className="cursor-pointer text-xl disabled:cursor-not-allowed disabled:opacity-20"
               onClick={() => handleQuantity("i")}
-              disabled={quantity===stockNumber}
+              disabled={quantity===maxQuantity}
             >
               +
             </button>
@@ -53,16 +42,21 @@ const Add = () => {
             <div className="text-xs">Product is out of stock</div>
           ) : ( */}
             <div className="text-xs">
-              Only <span className="text-orange-500">{stockNumber} items</span>{" "}
-              left!
-              <br /> {"Don't"} miss it
+            {maxQuantity === 0 ? (
+              <span className="text-red-500 font-bold">Out of stock !</span>
+            ): (
+                <span>
+                    Only <span className="text-orange-500">{maxQuantity - quantity} item{maxQuantity - quantity > 1 ? "s" : ""}</span> left!
+                    <br /> {"Don't"} miss it
+                </span>
+            )}
             </div>
           {/* )} */}
         </div>
         <button
-          onClick={()=>addToCart(product.id,quantity)}
-        //   disabled={isLoading}
-          className="w-36 text-sm rounded-3xl ring-1 bg-black text-white py-2 px-4 hover:bg-black hover:text-orange-500 disabled:cursor-not-allowed disabled:bg-pink-200 disabled:ring-0 disabled:text-white disabled:ring-none"
+          onClick={() => maxQuantity > 0 && addToCart(product.id, quantity)}
+          disabled={maxQuantity === 0}
+          className="w-36 text-sm rounded-3xl ring-1 bg-black text-white py-2 px-4 hover:bg-black hover:text-orange-500 disabled:cursor-not-allowed disabled:bg-black  disabled:bg-opacity-60   disabled:text-white disabled:ring-none"
         >
           Add to Carts
         </button>

@@ -9,7 +9,7 @@ import CartModal from "@/components/Cart/CartModal";
 import useCartStore from '@/hooks/useCartStore';
 const NavIcons = () => {
   const [isProfileOpen, setIsProfileOpen] = useState(false);
-  const [isCartOpen, setIsCartOpen] = useState(false);
+  const [isCartOpen, setIsCartOpen] = useState();
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
   const { carts } = useCartStore();

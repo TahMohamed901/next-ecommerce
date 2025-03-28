@@ -12,7 +12,7 @@ const CartItem:React.FC<{ item: CartItem }>  = ({item}) => {
     const {removeFromCart} = useCartStore();
     const product = allProducts.data.find(p => p.id === item.id) ?? null;
     return (
-    <div className='w-full flex gap-4'>
+    <div className='w-full flex gap-4 mt-2'>
         <Image 
         src={product?.images[0] || "" } 
         alt={product?.name || ""} 
@@ -35,7 +35,7 @@ const CartItem:React.FC<{ item: CartItem }>  = ({item}) => {
             {/* Bottom */}
             <div className='flex justify-between text-sm'>
                 <span className="text-gray-500">Qty. {item.quantity}</span>
-                <span className="text-blue-500" onClick={()=> removeFromCart(item.id)} >Remove</span>
+                <span className="text-blue-500 cursor-pointer " onClick={()=> removeFromCart(item.id)} >Remove</span>
             </div>
         </div>
     </div>

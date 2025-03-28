@@ -2,13 +2,14 @@
 import CartItem from '@/components/Cart/CartItem';
 import useCartStore from '@/hooks/useCartStore';
 import { allProducts } from '@/lib/products';
+import { Box } from '@mui/material';
 const CartModal = () => {
-    const cartItems = true;
+
     const { carts, getTotalCost } = useCartStore();
 
     return (
         <div className='mycart w-max absolute p-4 rounded-sm shadow-[0_3px_10px_rgb(0,0,0,0.1)] bg-white top-12 right-0 flex flex-col gap-6 z-20'>
-            {!cartItems ? 
+            {!carts.length  ? 
             (
             <div className="">Cart is Empty</div>
             ):
@@ -17,15 +18,19 @@ const CartModal = () => {
             <h2 className="text-xl">Shopping Cart</h2>
             <div className='flex flex-col gap-8'>
                 {/* Items */}
-                <div className='flex flex-col gap-8'>
-                    {/* <CartItem name={"prod 1"} price={120} state='available' quantity={12} />
-                    <CartItem name={"prod 2"} price={50} state='available' quantity={12} />
-                    <CartItem name={"prod 3"} price={210} state='available' quantity={12} /> */}
-                    {carts.length > 0 
-                    ? carts.map((item) => <CartItem item={item}/>)
-                    : <div>Empty</div>
-                    }
-                </div>
+                <Box
+                    sx={{
+                        overflowY: "scroll",
+                        "&::-webkit-scrollbar": { display: "none" },
+                        scrollbarWidth: "none",
+                        maxHeight:"30vh",
+                        borderBottom: "1px solid black",
+                        borderTop: "1px solid black",
+                        paddingBottom:"10px"
+                    }}
+                >
+                {carts.map((item) => <CartItem item={item} />)}
+                </Box>
 
                 {/* Bottom */}
                 {carts.length > 0 &&
