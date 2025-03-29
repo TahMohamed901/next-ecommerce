@@ -4,7 +4,6 @@ import ProductImages from '@/components/Product/SingleProduct/ProductImages'
 import { allProducts } from '@/lib/products'
 // Single Product
 const SingleProduct = ({ params }: { params: { pid: string } }) => {
-  console.log("id is ",params.pid)
   const product = allProducts.data.find(p => p.id === params.pid);
   return (
     
@@ -30,4 +29,4 @@ const SingleProduct = ({ params }: { params: { pid: string } }) => {
   )
 }
 
-export default SingleProduct
+export default SingleProduct ;
