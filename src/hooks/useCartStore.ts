@@ -42,20 +42,6 @@ persist(
     (set, get) => ({
     carts: [],
 
-    // addToCart: (productId: string) => set((state) => {
-    //     const existingItem = state.carts.find((item) => item.id === productId);
-    //     const product = allProducts.data.find(p => p.id === productId) ?? null;
-    //     if (existingItem) {
-    //         console.log(state)
-    //         return {
-    //             carts: state.carts.map((item) =>
-    //                 item.id === productId ? { ...item, quantity: item.quantity + 1 } : item
-    //             ),
-    //         };
-    //     }
-    //     console.log(state)
-    //     return product?.id ? { carts: [...state.carts, { id: productId,price:product?.price, quantity: 1 ,stock:4}] } : state;
-    // }),
     addToCart: (productId: string, quantityToAdd: number) => set((state) => {
         const existingItem = state.carts.find((item) => item.id === productId);
         const product = allProducts.data.find(p => p.id === productId) ?? null;

@@ -3,9 +3,7 @@ import React from "react";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Poppins } from "next/font/google";
-import "./globals.css";
-import Navbar from "@/components/Navbar/Navbar";
-import Footer from "@/components/Footer/Footer";
+
 import type { Viewport } from 'next'
 
 const inter = Inter({ subsets: ["latin"] });
@@ -14,8 +12,8 @@ export const poppins = Poppins({
   weight: ['200', '300', '400', '500','600' , '800'],
 })
 export const metadata: Metadata = {
-  title: "El Khaima | Home ",
-  description: "El Khaima home page ",
+  title: "El Khaima | Checkout ",
+  description: "El Khaima checkout page ",
 };
 export const viewport: Viewport = {
   width: 'device-width',
@@ -24,22 +22,15 @@ export const viewport: Viewport = {
   userScalable:false
 }
 
-const RootLayout = ({
+const CheckoutLayout = ({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) => {
   return (
-    <html lang="en">
-      <body className={`${poppins.className} ` } >
-        
-        <Navbar />
-        <div className="mt-[101px] min-h-[150px]">
-        {children}
-        </div>
-        <Footer />
-      </body>
-    </html>
+    <>
+      {children}
+    </>
   );
 }
-export default RootLayout
+export default CheckoutLayout

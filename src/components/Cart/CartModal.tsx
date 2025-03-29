@@ -3,12 +3,13 @@ import CartItem from '@/components/Cart/CartItem';
 import useCartStore from '@/hooks/useCartStore';
 import { allProducts } from '@/lib/products';
 import { Box } from '@mui/material';
+import Link from 'next/link';
 const CartModal = () => {
 
     const { carts, getTotalCost } = useCartStore();
 
     return (
-        <div className='mycart w-max absolute p-4 rounded-sm shadow-[0_3px_10px_rgb(0,0,0,0.1)] bg-white top-12 right-0 flex flex-col gap-6 z-20'>
+        <div className='mycart w-max absolute p-4 rounded-sm shadow-[0_3px_10px_rgb(0,0,0,0.1)] bg-white top-[82px] right-0 flex flex-col gap-6 z-20'>
             {!carts.length  ? 
             (
             <div className="">Cart is Empty</div>
@@ -29,7 +30,7 @@ const CartModal = () => {
                         paddingBottom:"10px"
                     }}
                 >
-                {carts.map((item) => <CartItem item={item} />)}
+                {carts.map((item,index) =><div key={index}><CartItem item={item} /></div> )}
                 </Box>
 
                 {/* Bottom */}
@@ -43,22 +44,26 @@ const CartModal = () => {
                         Lorem ipsum dolor sit amet consectetur ...
                     </p>
                     <div className='flex justify-between text-sm'>
+                        <Link href={"/checkout"} >
                         <button className='rounded-md py-3 px-4 ring-1 ring-gray-300'>
                             View Cart
                         </button>
+                        </Link>
+                        
                         <button
                             className="rounded-md py-3 px-4 bg-black text-white disabled:cursor-not-allowed disabled:opacity-75"
                             // disabled={isLoading}
                             // onClick={handleCheckout}
                         >
-                            Checkout
+                            <Link href={"/checkout"} >
+                                Checkout
+                            </Link>
                         </button>
                     </div>
                 </div>
                 }
             </div>
             </>
-            
             )
 
             }

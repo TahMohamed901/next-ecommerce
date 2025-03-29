@@ -15,7 +15,6 @@ const NavIcons = () => {
   const { carts } = useCartStore();
   const isLoggedIn = true;
   const [itemCounter, setItemCounter] = useState(carts.length)
-  console.log(itemCounter)
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       const target = event.target as HTMLElement;

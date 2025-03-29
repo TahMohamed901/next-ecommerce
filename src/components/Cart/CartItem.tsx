@@ -39,7 +39,7 @@ const CartItem:React.FC<{ item: CartItem }>  = ({item}) => {
             </div>
         </div>
     </div>
-  )
+    )
 }
 
 export default CartItem
