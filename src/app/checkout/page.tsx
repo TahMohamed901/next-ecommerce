@@ -1,15 +1,15 @@
 import CartPageBody from "@/components/Cart/CartPageBody"
 import CartPageRight from "@/components/Cart/CartPageRight"
-import { Metadata } from "next";
+import { BreadCrumb } from "@/components/shared/BreadCrumb";
 import Link from 'next/link';
 
-export const metadata: Metadata = {
-  title: "El Khaima | Checkout ",
-  description: "El Khaima checkout page ",
-};
 const page = () => {
   return (
-    <div className="w-full sm:flex py-20">
+    <>
+    <div className="py-5 px-2">
+      <BreadCrumb current="cart" />
+    </div>
+    <div className="w-full sm:flex pb-20">
       {/* left */}
       <div className="bg-gray-100 sm:w-2/3 m-2 border-zinc-500 border-2">
         <h1 className=" border-zinc-500 border-b-2 text-center font-semibold ">Your Cart</h1>
@@ -30,14 +30,15 @@ const page = () => {
               className="rounded-md py-3 px-4 bg-black text-white disabled:cursor-not-allowed disabled:opacity-75"
               // disabled={isLoading}
               // onClick={handleCheckout}
-          >
-              <Link href={"/checkout"} >
+              >
+              <Link href={"/checkout/addresses"} >
                   Checkout
               </Link>
           </button>
         </div>
       </div>
     </div>
+    </>
   )
 }
 
