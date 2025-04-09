@@ -15,9 +15,6 @@ import {
   FormMessage,
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
-import { redirect } from "next/navigation";
-
-
 const Addresses = () => {
   const [isClient, setIsClient] = useState(false);
   const router = useRouter()
