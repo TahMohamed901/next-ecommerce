@@ -83,7 +83,7 @@ const MobileFilter = () => {
                     <h1 onClick={handleReset} className="pr-8 font-medium cursor-pointer">Reset filters</h1>
                 </div>
                 {/* Type */}
-                <div className="flex justify-between py-3 text-[16px]">
+                {/* <div className="flex justify-between py-3 text-[16px]">
                     <h1 className="font-semibold">Type</h1>
                     <select
                         name="type"
@@ -95,7 +95,7 @@ const MobileFilter = () => {
                         <option value="physical">Physical</option>
                         <option value="digital">Digital</option>
                     </select>
-                </div>
+                </div> */}
                 {/* Category */}
                 <div className="flex justify-between py-3 text-[16px]">
                     <h1 className="font-semibold">Category</h1>

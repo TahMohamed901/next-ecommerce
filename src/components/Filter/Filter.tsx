@@ -3,6 +3,7 @@
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 const Filter = () => {
+  
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const router = useRouter();
@@ -20,7 +21,7 @@ const Filter = () => {
   return (
     <div className="flex justify-between">
       <div className="flex gap-6 flex-wrap">
-        <select
+        {/* <select
           name="type"
           id=""
           className="py-2 px-4 rounded-2xl text-xs font-medium bg-[#EBEDED]"
@@ -29,7 +30,7 @@ const Filter = () => {
           <option value="all" >Type</option>
           <option value="physical">Physical</option>
           <option value="digital">Digital</option>
-        </select>
+        </select> */}
         <input
           type="text"
           name="min"

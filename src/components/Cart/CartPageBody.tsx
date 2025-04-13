@@ -1,7 +1,10 @@
 "use client"
 import useCartStore from '@/hooks/useCartStore';
 import { allProducts } from '@/lib/products';
+import { getProductById } from '@/lib/services/productServices';
+import { ProductDTO } from '@/lib/types/productTypes';
 import Image from 'next/image'
+import { useEffect, useState } from 'react';
 
 const CartPageBody = () => {
     const { carts, getTotalCost } = useCartStore();
@@ -20,20 +23,29 @@ const CartPageBody = () => {
 
 
 interface Item{
-    id:string;
-    price:number;
+    id:number;
     quantity:number;
-    stock:number;
 }
 const CartPageBodyItem:React.FC<{ item: Item }> = ({item})=>{
     const {removeFromCart, increaseQuantity, decreaseQuantity} = useCartStore();
-    const product = allProducts.data.find(p => p.id === item.id) ?? null;
-    const maxQuantity = product?.quantity;
+    const [product, setProduct] = useState<ProductDTO | null>(null);
+    useEffect(() => {
+        const fetchProduct = async () => {
+          try {
+            const data = await getProductById(item.id);
+            setProduct(data);
+          } catch (error) {
+            console.error(`Erreur lors de la récupération du produit ${item.id}:`, error);
+          }
+        };
+        fetchProduct();
+      }, [item.id]);
+    const maxQuantity = product?.stock;
     return (
         <div className='w-full flex gap-4 mt-2 h-40'>
             <div className=''>
                 <Image 
-                src={product?.images[0] || "" } 
+                src={`http://localhost:8080/files/images/${product?.mainImage} `} 
                 alt={product?.name || ""} 
                 width={100} 
                 height={10} 
@@ -43,8 +55,14 @@ const CartPageBodyItem:React.FC<{ item: Item }> = ({item})=>{
             <div className='flex w-full justify-between max-sm:gap-2'>
                 <div className='sm:w-1/5 '>
                     <h3 className='font-semibold'>{product?.name || "Product Name" }</h3>
-                    <div className='text-sm text-gray-500'>{product?.description}</div>
-                    <div className='p-1 rounded-sm flex items-center gap-2 font-semibold'>$ {item.price}</div>
+                    <div className='text-sm text-gray-500'>
+                    {product?.description
+                        ? product.description.length > 10
+                        ? product.description.slice(0, 0) + "..."
+                        : product.description
+                        : ""}
+                    </div>
+                    <div className='p-1 rounded-sm flex items-center gap-2 font-semibold'>$ {product?.price}</div>
                     <div className='p-1 rounded-sm flex items-center  font-light'>x {item.quantity}</div>
                 </div>
 
@@ -69,7 +87,7 @@ const CartPageBodyItem:React.FC<{ item: Item }> = ({item})=>{
                 </div>
 
                 <div className='sm:w-1/5  text-right'>
-                    <div className='p-1rounded-sm flex justify-end gap-2'>$ {item.price * item.quantity}</div>
+                    <div className='p-1rounded-sm flex justify-end gap-2'>$ {product && product.price * item.quantity}</div>
                     <span className="text-blue-500 cursor-pointer max-sm:text-sm" onClick={()=> removeFromCart(item.id)} >Remove</span>
                 </div>
             </div>

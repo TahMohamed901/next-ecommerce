@@ -5,10 +5,9 @@ import MultiCarousel from "@/components/Carousel/MultiCarousel"
 import Image from "next/image"
 import CustomButton from "@/components/Button/CustomButton"
 const HomePage = () => {
+  
   return (
     <>
-    {/* <Slider /> */}
-    {/* <Banner /> */}
     <div className="w-full flex-col justify-center  h-auto p-4 bg-black">
       <div className="text-white text-center">
         <h1 className="text-2xl font-medium ">Wold Of Art</h1>
@@ -35,7 +34,7 @@ const HomePage = () => {
 
     {/* Product Catalogue  1 */} 
     <div className="pt-10 px-4 md:px-8 lg:px-16 xl:px-32 2xl:px-64 bg-slate-50">
-
+    {/* <Test/> */}
     <div className="flex justify-between items-end max-sm:flex-col max-sm:justify-center max-sm:items-start">
       <div className="">
       <h1 className="text-2xl font-medium">Bestsellers</h1>
@@ -47,7 +46,7 @@ const HomePage = () => {
       
     </div>
     <div className="">
-      <MultiCarousel category={bestsellers} />
+      <MultiCarousel category={"paints"} />
     </div>
     </div>
 
@@ -67,7 +66,7 @@ const HomePage = () => {
         
       </div>
 
-      <MultiCarousel category={photographies} />
+      <MultiCarousel category={"photographys"} />
     </div>
 
     {/* Product Catalogue  3 */} 
@@ -85,7 +84,7 @@ const HomePage = () => {
         
       </div>
 
-      <MultiCarousel category={accessories} />
+      <MultiCarousel category={"accessories"} />
     </div>
     </>
   )

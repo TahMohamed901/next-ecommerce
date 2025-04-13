@@ -17,7 +17,7 @@ const ArtworksLayout = ({
       {/* Sidebar */}
         <div className="px-4 pt-8 py-4 max-sm:hidden">
           {/* <DesktopTabletFilter/> */}
-          <Filter/>
+          {/* <Filter/> */}
         </div>
       {/* Contenu principal */}
       <div className="flex-1 px-2 w-full">

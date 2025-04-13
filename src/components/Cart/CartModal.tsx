@@ -1,13 +1,26 @@
-
+"use client"
 import CartItem from '@/components/Cart/CartItem';
+import { useAuthStore } from '@/hooks/useAuthStore';
 import useCartStore from '@/hooks/useCartStore';
-import { allProducts } from '@/lib/products';
+import { useRouter } from "next/navigation";
 import { Box } from '@mui/material';
 import Link from 'next/link';
+import { useEffect } from 'react';
 const CartModal = () => {
-
+    const router = useRouter();
     const { carts, getTotalCost } = useCartStore();
-
+    const {fetchUser} = useAuthStore.getState();
+    const handleCheckout = async()=>{
+        await fetchUser();
+        const { user: freshUser } = useAuthStore.getState(); 
+        if(!freshUser){
+            console.log("Not authenticated");
+            router.push("/login"); // 🔁 redirection vers login
+        }else{
+            router.push("/checkout");
+        }
+        
+    }
     return (
         <div className='mycart w-max absolute p-4 rounded-sm shadow-[0_3px_10px_rgb(0,0,0,0.1)] bg-white top-[82px] right-0 flex flex-col gap-6 z-20'>
             {!carts.length  ? 
@@ -30,7 +43,7 @@ const CartModal = () => {
                         paddingBottom:"10px"
                     }}
                 >
-                {carts.map((item,index) =><div key={index}><CartItem item={item} /></div> )}
+                {carts.map((item,index) =><div key={index}><CartItem item ={item} /></div> )}
                 </Box>
 
                 {/* Bottom */}
@@ -38,7 +51,7 @@ const CartModal = () => {
                 <div className=''>
                     <div className='flex items-center justify-between font-semibold'>
                         <span>Subtotal</span>
-                        <span>${getTotalCost()}</span>
+                        {/* <span>${getTotalCost()}</span> */}
                     </div>
                     <p className='text-gray-500 text-sm mt-2 mb-4'>
                         Lorem ipsum dolor sit amet consectetur ...
@@ -53,11 +66,11 @@ const CartModal = () => {
                         <button
                             className="rounded-md py-3 px-4 bg-black text-white disabled:cursor-not-allowed disabled:opacity-75"
                             // disabled={isLoading}
-                            // onClick={handleCheckout}
+                            onClick={handleCheckout}
                         >
-                            <Link href={"/checkout"} >
+                            {/* <Link href={"/checkout"} > */}
                                 Checkout
-                            </Link>
+                            {/* </Link> */}
                         </button>
                     </div>
                 </div>

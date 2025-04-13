@@ -13,36 +13,39 @@ import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/drawer";
 // import Zoom from "react-medium-image-zoom";
 import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 import Image from "next/image";
-import { useState } from "react";
+import { FC, useState } from "react";
+import { useQuery } from "@tanstack/react-query";
+import { getProductById } from "@/lib/services/productServices";
+import { getAllProductImages } from "@/lib/services/productImagesServices";
 
-// const images = [
-//   { id: 1, url: "/products/photography/train-1.webp" },
-//   { id: 2, url: "/products/photography/train-2.webp" },
-//   { id: 3, url: "/products/photography/train-3.webp" },
-//   { id: 4, url: "/products/photography/train-4.webp" },
-//   { id: 5, url: "/products/photography/img-5.png" },
-// ];
-interface ProductImagesProps{
-  images:string[]
+interface ProductImagesProps {
+  pId: number;
 }
-const ProductImages = ({images}:ProductImagesProps) => {
+const ProductImages: FC<ProductImagesProps> = ({pId}) => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
-
+  const {data:images, error, isLoading} = useQuery({
+    queryKey:["productImages"],
+    queryFn: () => getAllProductImages(pId),
+  })
+  if(isLoading){
+    return "Loading ..."
+  }
+  console.log(images)
   return (
     <div className="w-full flex justify-center">
       <Carousel className="w-full max-sm:w-full">
         <CarouselContent>
-          {images.map((img, index) => (
-            <CarouselItem key={index}>
+          {images?.map((img) => (
+            <CarouselItem key={img.id}>
               <div className="p-1">
                 <Card>
                   <CardContent className="relative flex aspect-square items-center justify-center">
                     {/* Ouvre le Drawer au clic */}
                     <Drawer>
-                      <DrawerTrigger onClick={() => setSelectedImage(img)}>
+                      <DrawerTrigger onClick={() => setSelectedImage(img.imageUrl)}>
                         <Image
-                          src={img}
-                          alt={`Image ${index + 1}`}
+                          src={`http://localhost:8080/files/images/${img.imageUrl}`}
+                          alt={`http://localhost:8080/files/images/${img.imageUrl}`}
                           fill
                           sizes="30vw"
                           className="object-cover rounded-md cursor-pointer"
@@ -54,7 +57,7 @@ const ProductImages = ({images}:ProductImagesProps) => {
                             <TransformWrapper>
                               <TransformComponent>
                                 <Image
-                                  src={selectedImage}
+                                  src={`http://localhost:8080/files/images/${selectedImage}`}
                                   alt="Zoomable Image"
                                   width={700}
                                   height={300}
@@ -73,7 +76,7 @@ const ProductImages = ({images}:ProductImagesProps) => {
           ))}
         </CarouselContent>
 
-        {images.length > 1 && (
+        {images && images.length > 1 && (
           <>
             <CarouselPrevious />
             <CarouselNext />

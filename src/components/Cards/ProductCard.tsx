@@ -1,4 +1,4 @@
-
+"use client"
 import Paper from '@mui/material/Paper';
 import { styled } from '@mui/material/styles';
 import { IconButton } from "@mui/material";
@@ -10,6 +10,7 @@ import Avatar from '@mui/material/Avatar';
 import useCartStore from '@/hooks/useCartStore';
 import { allProducts } from '@/lib/products';
 import Link from 'next/link';
+import { ProductDTO } from '@/lib/types/productTypes';
 const Label = styled(Paper)(({ theme }) => ({
     backgroundColor: '#fff',
     // ...theme.typography.body2,
@@ -24,29 +25,27 @@ const Label = styled(Paper)(({ theme }) => ({
     // }),
 }))
 
-const ProductCard: React.FC<{ pId: string }> = ({ pId }) => {
+const ProductCard: React.FC<{ product: ProductDTO }> = ({ product }) => {
 
     const [isFavorite, setIsFavorite] = useState(false);
     const {carts, addToCart} = useCartStore();
-    const product = allProducts.data.find(p => p.id === pId) ?? null;
-    const inCart = carts.find(c => c.id === product?.id);
+    const imageUrl = `http://localhost:8080/files/images/${product.mainImage}`;
     return (
 
 
         <>
-        <Link href={`/${pId}`}>
-        <img
-        srcSet={`${product?.images[0]}?w=162&auto=format&dpr=2 2x`}
-        src={`${product?.images[0]}?w=162&auto=format`}
-        alt={product?.name}
-        loading="lazy"
-        style={{
-            // borderBottomLeftRadius: 4,
-            // borderBottomRightRadius: 4,
-            display: 'block',
-            width: '100%',
-        }}
-        />
+        <Link href={`/${product.id}`}>
+            <img
+                srcSet={`${imageUrl}?w=162&auto=format&dpr=2 2x`}
+                src={`${imageUrl}?w=162&auto=format`}
+                alt={product.name}
+                loading="lazy"
+                style={{
+                    display: 'block',
+                    width: '100%',
+                    borderRadius: '0.5rem',
+                }}
+            />
         </Link>
         <Label>
             <div className='flex max-sm:w-full justify-between items-center border-b'>
@@ -58,13 +57,13 @@ const ProductCard: React.FC<{ pId: string }> = ({ pId }) => {
                     <IconButton onClick={() => setIsFavorite(!isFavorite)} color="error">
                         {isFavorite ? <FavoriteIcon /> : <FavoriteBorderIcon />}
                     </IconButton>
-                    <IconButton color='inherit' onClick={() => product?.id && addToCart(product.id,1)} disabled={inCart? true:false} >
+                    <IconButton color='inherit' onClick={() => product?.id && addToCart(product.id,1)}  >
                         <ShoppingIcon />
                     </IconButton>
                 </div>
             </div>
     
-            <Link href={`/${pId}`}>
+            <Link href={`/${product.id}`}>
                 <div className='flex-col justify-start pt-2'>
                     <h1 className='font-semibold text-md'>{product?.name}</h1>
                     <p className='font-light text-sm'>{product?.description}</p>
