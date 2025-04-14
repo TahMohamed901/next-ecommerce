@@ -28,7 +28,7 @@ const HomePage = () => {
         </div>
       </div>
       <div className="pt-4">
-        <CustomButton text="Discover our collection" link="/"/>
+        <CustomButton text="Discover our collection" link="/artworks"/>
       </div>
     </div>
 
@@ -66,7 +66,7 @@ const HomePage = () => {
         
       </div>
 
-      <MultiCarousel category={"photographys"} />
+      <MultiCarousel category={"photographies"} />
     </div>
 
     {/* Product Catalogue  3 */} 

@@ -11,6 +11,7 @@ import useCartStore from '@/hooks/useCartStore';
 import { allProducts } from '@/lib/products';
 import Link from 'next/link';
 import { ProductDTO } from '@/lib/types/productTypes';
+import { json } from 'stream/consumers';
 const Label = styled(Paper)(({ theme }) => ({
     backgroundColor: '#fff',
     // ...theme.typography.body2,
@@ -29,6 +30,7 @@ const ProductCard: React.FC<{ product: ProductDTO }> = ({ product }) => {
 
     const [isFavorite, setIsFavorite] = useState(false);
     const {carts, addToCart} = useCartStore();
+    const isInCart = carts.some(item => item.id === product.id);
     const imageUrl = `http://localhost:8080/files/images/${product.mainImage}`;
     return (
 
@@ -57,7 +59,8 @@ const ProductCard: React.FC<{ product: ProductDTO }> = ({ product }) => {
                     <IconButton onClick={() => setIsFavorite(!isFavorite)} color="error">
                         {isFavorite ? <FavoriteIcon /> : <FavoriteBorderIcon />}
                     </IconButton>
-                    <IconButton color='inherit' onClick={() => product?.id && addToCart(product.id,1)}  >
+
+                    <IconButton color='inherit' onClick={() => !isInCart && product?.id && addToCart(product.id,1)} disabled={isInCart} >
                         <ShoppingIcon />
                     </IconButton>
                 </div>

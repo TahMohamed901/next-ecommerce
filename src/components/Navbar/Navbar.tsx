@@ -77,7 +77,7 @@ const Navbar = () => {
         </div>
         {/* Bottom */}
         <div className='hidden h-12 md:flex border-black/5 
-         pl-0.5 w-full 
+        pl-0.5 w-full 
         justify-start items-center 
         gap-5 font-medium
         text-main_text font text-sm
