@@ -2,8 +2,9 @@
 import useCartStore from '@/hooks/useCartStore';
 import { getProductById } from '@/lib/services/productServices'; // adapte le chemin si nécessaire
 import Image from 'next/image';
+import Link from 'next/link';
 import { useEffect, useState } from 'react';
-
+import { useRouter } from "next/navigation";
 interface CartItem {
   id: number;
   quantity: number;
@@ -22,7 +23,7 @@ const CartItem: React.FC<{ item: CartItem }> = ({ item }) => {
   const { removeFromCart } = useCartStore();
   const [product, setProduct] = useState<any>(null);
   const [loading, setLoading] = useState(true);
-
+  const router = useRouter();
   useEffect(() => {
     const fetchProduct = async () => {
       try {
@@ -37,6 +38,10 @@ const CartItem: React.FC<{ item: CartItem }> = ({ item }) => {
 
     fetchProduct();
   }, [item.id]);
+  
+  const gotoProduct = ()=>{
+    router.push(`/${item.id}`)
+  }
 
   if (loading || !product) {
     return <div>Loading...</div>;
@@ -44,13 +49,16 @@ const CartItem: React.FC<{ item: CartItem }> = ({ item }) => {
 
   return (
     <div className='w-full flex gap-4 mt-2'>
+
       <Image
         src={`http://localhost:8080/files/images/${product.mainImage}`}
         alt={product.name}
         width={68}
         height={90}
-        className='object-cover rounded-md'
+        className='object-cover rounded-md cursor-pointer'
+        onClick={gotoProduct}
       />
+      
       <div className='w-full'>
         {/* Top */}
         <div>

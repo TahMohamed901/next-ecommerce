@@ -78,7 +78,7 @@ const Footer = () => {
       </div>
       {/* BOTTOM */}
       <div className="flex flex-col md:flex-row items-center justify-between gap-8 mt-16">
-        <div className="max-sm:hidden">© 2024 El Khaïma</div>
+        <div className="max-sm:hidden">© 2025 El Khaïma</div>
         <div className="flex flex-col gap-8 md:flex-row max-sm:items-start">
           <div className="">
             <span className="text-gray-500 mr-4">Language</span>
@@ -89,7 +89,7 @@ const Footer = () => {
             <span className="font-medium">$ USD</span>
           </div>
         </div>
-        <div className="sm:hidden">© 2024 El Khaïma</div>
+        <div className="sm:hidden">© 2025 El Khaïma</div>
       </div>
     </div>
   );

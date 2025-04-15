@@ -92,8 +92,8 @@ const NavIcons = () => {
               <div className="absolute px-3 py-3 rounded-md top-12 left-0 bg-white text-sm shadow-[0_3px_10px_rgb(0,0,0,0.2)] z-20">
                 {user ? (
                   <>
-                    <Link href="/profile" className="block mb-2">Profile</Link>
-                    <Link href="/Orders" className="block mb-2">MyOrders</Link>
+                    <Link href="/#" className="block mb-2">Profile</Link>
+                    <Link href="/orders" className="block mb-2">MyOrders</Link>
                   {
                     (user.role === "artisan" || user.role === "artisan") && <Link href="/Orders" className="block mb-2">Dashboard</Link>
                   }

@@ -4,6 +4,7 @@ import { allProducts } from '@/lib/products';
 import { getProductById } from '@/lib/services/productServices';
 import { ProductDTO } from '@/lib/types/productTypes';
 import Image from 'next/image'
+import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
 const CartPageBody = () => {
@@ -29,6 +30,7 @@ interface Item{
 const CartPageBodyItem:React.FC<{ item: Item }> = ({item})=>{
     const {removeFromCart, increaseQuantity, decreaseQuantity} = useCartStore();
     const [product, setProduct] = useState<ProductDTO | null>(null);
+    const router = useRouter();
     useEffect(() => {
         const fetchProduct = async () => {
           try {
@@ -40,6 +42,9 @@ const CartPageBodyItem:React.FC<{ item: Item }> = ({item})=>{
         };
         fetchProduct();
       }, [item.id]);
+      const gotoProduct = ()=>{
+        router.push(`/${item.id}`)
+      }
     const maxQuantity = product?.stock;
     return (
         <div className='w-full flex gap-4 mt-2 h-40'>
@@ -49,7 +54,8 @@ const CartPageBodyItem:React.FC<{ item: Item }> = ({item})=>{
                 alt={product?.name || ""} 
                 width={100} 
                 height={10} 
-                className='object-cover rounded-md h-28 w-32'
+                className='object-cover rounded-md h-28 w-32 cursor-pointer'
+                onClick={gotoProduct}
                 />
             </div>
             <div className='flex w-full justify-between max-sm:gap-2'>
