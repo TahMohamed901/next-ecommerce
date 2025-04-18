@@ -4,7 +4,7 @@ import { useRouter } from 'next/navigation'
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
-
+import { useAddressStore } from "@/hooks/useCheckoutAddressStore"
 import { Button } from "@/components/ui/button"
 import {
   Form,
@@ -14,11 +14,15 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form"
+
+type Props = {
+  setStep: (step: "Cart" | "Addresses" | "Confirmation" | "Success" | "Fail") => void
+}
 import { Input } from "@/components/ui/input"
-const Addresses = () => {
+const Addresses = ({ setStep }: Props) => {
   const [isClient, setIsClient] = useState(false);
   const router = useRouter()
-  
+  const { setAddress } = useAddressStore()
   useEffect(() => {
     setIsClient(true);
   }, []);
@@ -39,7 +43,9 @@ const Addresses = () => {
   
   function onSubmit(values: z.infer<typeof formSchema>) {
     console.log(values);
-    router.push("/checkout/payment")
+    setAddress(values);
+    // router.push("/checkout/payment")
+    setStep("Confirmation");
   }
   
   if (!isClient) return null; // Empêche le rendu côté serveur
