@@ -1,5 +1,5 @@
 "use client"
-import { poppins } from "@/app/layout";
+import { poppins } from "@/app/(Main)/layout";
 import Image from "next/image"
 import { useRouter } from "next/navigation";
 const Searchbar = () => {
