@@ -3,7 +3,7 @@ import MobileFilter from "@/components/Filter/MobileFilter";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "El Khaima | Home ",
+  title: "El Khaima | Artworks ",
   description: "El Khaima home page ",
 };
 

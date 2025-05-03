@@ -18,6 +18,9 @@ export const poppins = Poppins({
 export const metadata: Metadata = {
   title: "El Khaima | Dashboard ",
   description: "El Khaima Dashboard page ",
+  icons: {
+    icon: '/icons/icon.png',
+  },
 };
 export const viewport: Viewport = {
   width: 'device-width',
